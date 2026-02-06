@@ -13,6 +13,7 @@ import IndonesiaOffline from "./pages/registration/indo-offline";
 import InternationalOnline from "./pages/registration/inter-online";
 import InternationalOffline from "./pages/registration/inter-offline";
 import AboutPage from "./pages/AboutPage";
+import WinnersPage from "./pages/WinnersPage";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/winners" element={<WinnersPage />} />
           <Route path="/homeregist" element={<HomeRegist />} />
           <Route path="/homeindo" element={<HomeIndo />} />
           <Route path="/indo-online" element={<IndonesiaOnline />} />

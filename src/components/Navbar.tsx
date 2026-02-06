@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "List of Winners", href: "#home" },
+  { name: "List of Winners", href: "/winners" },
   { name: "Curation", href: "#about" },
   { name: "Certificates", href: "#categories" },
   // { name: "Schedule", href: "#schedule" },
@@ -46,13 +46,13 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 className="text-muted-foreground hover:text-primary font-medium transition-colors duration-200"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -88,14 +88,14 @@ const Navbar = () => {
           >
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
                   className="px-4 py-3 rounded-lg text-muted-foreground hover:text-primary hover:bg-muted font-medium transition-all"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
               <Link to="/homeregist">
                 <Button variant="nav" size="lg" className="mt-2 w-full">
