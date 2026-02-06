@@ -618,15 +618,16 @@ function IndonesiaOnline() {
                     required
                   >
                     <option value="">--Choose Categories--</option>
+                    <option value="Plant & Crop Science">Plant & Crop Science</option>
+                    <option value="Food Security & Sustainable Agriculture">Food Security & Sustainable Agriculture</option>
+                    <option value="AI & IoT in Agriculture">AI & IoT in Agriculture</option>
+                    <option value="Education & Social Impact Studies">Education & Social Impact Studies</option>
+                    <option value="Digital & Sustainable Cooperative Innovation">Digital & Sustainable Cooperative Innovation</option>
+                    <option value="Disaster and Crisis Studies">Disaster and Crisis Studies</option>
+                    <option value="Innovation for Public Systems">Innovation for Public Systems</option>
                     <option value="Social Science">Social Science</option>
-                    <option value="Life Sciences">Life Sciences</option>
-                    <option value="Engineering">Engineering</option>
-                    <option value="Environmental Science">
-                      Environmental Science
-                    </option>
-                    <option value="Innovation Science">
-                      Innovation Science
-                    </option>
+                    <option value="Life Science">Life Science</option>
+                    <option value="Environmental Science">Environmental Science</option>
                   </select>
                 </div>
                 <div className="mb-6">
