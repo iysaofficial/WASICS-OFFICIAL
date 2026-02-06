@@ -33,7 +33,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="section-padding bg-muted/50" ref={ref}>
+    <section id="about" className="section-padding bg-background bg-[linear-gradient(to_right,hsl(var(--primary)/0.03)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.03)_1px,transparent_1px)] bg-[size:2rem_2rem]" ref={ref}>
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Content */}

@@ -28,7 +28,7 @@ const FAQSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="faq" className="section-padding" ref={ref}>
+    <section id="faq" className="section-padding bg-[radial-gradient(hsl(var(--primary)/0.05)_1px,transparent_1px)] bg-[size:1rem_1rem]" ref={ref}>
       <div className="container-custom">
         {/* Header */}
         <motion.div

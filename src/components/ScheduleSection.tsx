@@ -47,7 +47,7 @@ const ScheduleSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="schedule" className="section-padding bg-muted/50" ref={ref}>
+    <section id="schedule" className="section-padding bg-gradient-to-b from-background to-accent/10" ref={ref}>
       <div className="container-custom">
         {/* Header */}
         <motion.div

@@ -74,7 +74,7 @@ const CategoriesSection = () => {
   const isMobile = useIsMobile();
 
   return (
-    <section id="categories" className="section-padding" ref={ref}>
+    <section id="categories" className="section-padding bg-muted/50" ref={ref}>
       <div className="container-custom">
         {/* Header */}
         <motion.div

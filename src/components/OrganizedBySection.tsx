@@ -20,7 +20,7 @@ const OrganizedBySection = () => {
   ];
 
   return (
-    <section id="organized-by" className="section-padding" ref={ref}>
+    <section id="organized-by" className="section-padding bg-[radial-gradient(ellipse_at_center,hsl(var(--secondary)/0.1),transparent_70%)]" ref={ref}>
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
