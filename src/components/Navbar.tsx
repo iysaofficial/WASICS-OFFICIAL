@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
+  { name: "Home", href: "/" },
   { name: "List of Winners", href: "#home" },
   { name: "Curation", href: "#about" },
   { name: "Certificates", href: "#categories" },

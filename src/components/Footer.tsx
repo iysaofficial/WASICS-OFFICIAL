@@ -37,7 +37,7 @@ const Footer = () => {
             className="lg:col-span-1"
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-full items-center justify-center pr-8">
+              <div className="w-64 md:w-full items-center justify-center pr-8">
                 <img src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1770278029/LOGO_WASICS_Revisi_mhkrln.png" alt="logo wasisc 2026  " />
               </div>
             </div>
