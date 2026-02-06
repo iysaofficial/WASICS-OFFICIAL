@@ -140,7 +140,7 @@ function InternationalOffline() {
             </h1>
             <div className="w-24 h-1.5 bg-secondary rounded-full mb-8"></div>
             <h4 className="text-lg font-semibold text-foreground mb-4">
-              HELLO JISF 2026 INTERNATIONAL CITIZEN, Please consider the following
+              HELLO WASISC 2026 INTERNATIONAL CITIZEN, Please consider the following
               information before filling out the registration form:
             </h4>
             <div className="space-y-3 text-muted-foreground">
@@ -720,7 +720,7 @@ function InternationalOffline() {
                     htmlFor="INFORMATION_RESOURCES"
                     className="block text-sm font-medium text-foreground mb-2"
                   >
-                    JISF 2026 Competition Information Resources
+                    WASISC 2026 Competition Information Resources
                   </label>
                   <select
                     id="INFORMATION_RESOURCES"
@@ -731,17 +731,17 @@ function InternationalOffline() {
                     <option value="">
                       --Select the Source of Information--
                     </option>
-                    <option value="JISF Website">JISF Website</option>
+                    <option value="WASISC Website">WASISC Website</option>
                     <option value="IYSA Website">IYSA Website</option>
                     <option value="IYSA Instagram">IYSA Instagram</option>
-                    <option value="JISF Instagram">JISF Instagram</option>
+                    <option value="WASISC Instagram">WASISC Instagram</option>
                     <option value="Supervisor/School">
                       Supervisor/School
                     </option>
                     <option value="IYSA Facebook">IYSA Facebook</option>
                     <option value="IYSA Linkedin">IYSA Linkedin</option>
                     <option value="IYSA Email">IYSA Email</option>
-                    <option value="JISF Email">JISF Email</option>
+                    <option value="WASISC Email">WASISC Email</option>
                     <option value="Previous Event">Previous Event</option>
                     <option value="Others">Others</option>
                   </select>
