@@ -2,10 +2,12 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Award, Globe2, Users, Target } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isMobile = useIsMobile();
 
   const features = [
     {
@@ -39,6 +41,7 @@ const AboutSection = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
+            className="flex flex-col justify-center items-center lg:items-start text-justify lg:text-left"
           >
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-4">
               About The Event
@@ -48,7 +51,7 @@ const AboutSection = () => {
               <span className="text-gradient">Sustainable Future</span>
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              WASICS & NASICS 2026 is a premier international science competition 
+              WASISC 2026 is a premier international science competition 
               bringing together talented students from Junior High to University level. 
               This groundbreaking event focuses on Agriculture, Strategic Innovation, 
               and Cooperative Science.
@@ -62,60 +65,47 @@ const AboutSection = () => {
               <span className="font-semibold text-foreground">
                 SMA Taruna Nusantara Malang
               </span>
-              , this competition provides a platform for young researchers to 
+              , this competition provides a platform for young researchers to
               showcase their innovative solutions to global challenges.
             </p>
 
-            {/* Organizer Badges */}
-            <div className="flex flex-wrap gap-4">
-              <div className="flex items-center gap-3 px-4 py-3 bg-card rounded-xl border border-border shadow-soft">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <span className="text-primary font-bold">IYSA</span>
-                </div>
-                <div>
-                  <div className="font-semibold text-foreground text-sm">IYSA</div>
-                  <div className="text-muted-foreground text-xs">Main Organizer</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 px-4 py-3 bg-card rounded-xl border border-border shadow-soft">
-                <div className="w-12 h-12 rounded-lg bg-secondary/20 flex items-center justify-center">
-                  <span className="text-secondary-foreground font-bold text-xs">TN</span>
-                </div>
-                <div>
-                  <div className="font-semibold text-foreground text-sm">SMA Taruna Nusantara</div>
-                  <div className="text-muted-foreground text-xs">Co-Organizer</div>
-                </div>
-              </div>
+            <div className="mt-2">
+              <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8">
+                Learn More
+              </button>
             </div>
+
           </motion.div>
 
           {/* Features Grid */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid sm:grid-cols-2 gap-6"
-          >
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                className="group p-6 bg-card rounded-2xl border border-border shadow-soft hover:shadow-elevated transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                  <feature.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
-                </div>
-                <h3 className="font-bold text-foreground text-lg mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
+          { !isMobile && (
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="grid grid-cols-2 gap-6"
+            >
+              {features.map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                  className="group p-6 bg-card rounded-2xl border border-border shadow-soft hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 flex justify-center flex-col items-center text-center"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                    <feature.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
+                  </div>
+                  <h3 className="font-bold text-foreground text-lg mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
         </div>
       </div>
     </section>

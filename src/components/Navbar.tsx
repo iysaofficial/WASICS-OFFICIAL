@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -36,12 +37,9 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">W</span>
+            <div className="w-32 items-center justify-center">
+              <img src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1770278029/LOGO_WASICS_Revisi_mhkrln.png" alt="logo wasisc 2026" />
             </div>
-            <span className="font-bold text-lg text-foreground hidden sm:block">
-              WASICS & NASICS
-            </span>
           </a>
 
           {/* Desktop Navigation */}
@@ -59,9 +57,11 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button variant="nav" size="lg">
-              Register Now
-            </Button>
+            <Link to="/homeregist">
+              <Button variant="nav" size="lg">
+                Register Now
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -96,9 +96,11 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <Button variant="nav" size="lg" className="mt-2">
-                Register Now
-              </Button>
+              <Link to="/homeregist">
+                <Button variant="nav" size="lg" className="mt-2 w-full">
+                  Register Now
+                </Button>
+              </Link>
             </div>
           </motion.div>
         )}

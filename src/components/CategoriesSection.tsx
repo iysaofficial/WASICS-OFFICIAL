@@ -13,6 +13,7 @@ import {
   HeartPulse,
   TreeDeciduous,
 } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const categories = [
   {
@@ -70,6 +71,7 @@ const categories = [
 const CategoriesSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isMobile = useIsMobile();
 
   return (
     <section id="categories" className="section-padding" ref={ref}>
@@ -95,7 +97,7 @@ const CategoriesSection = () => {
         </motion.div>
 
         {/* Categories Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           {categories.map((category, index) => (
             <motion.div
               key={category.title}
@@ -107,16 +109,18 @@ const CategoriesSection = () => {
               {/* Gradient overlay on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
-              <div className="relative z-10">
+              <div className="relative z-10 flex flex-col items-center text-center">
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
                   <category.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
                 </div>
                 <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                   {category.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {category.description}
-                </p>
+                { !isMobile && (
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {category.description}
+                  </p>
+                )}
               </div>
             </motion.div>
           ))}

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Sparkles } from "lucide-react";
+import { ArrowRight, Book, Download, Map, Sparkles, View } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -25,9 +26,9 @@ const HeroSection = () => {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/20 border border-secondary/30 mb-6"
           >
-            <Sparkles className="w-4 h-4 text-secondary" />
+            <Map className="w-4 h-4 text-secondary" />
             <span className="text-sm font-semibold text-foreground">
-              October 23-26, 2026 • Malang, Indonesia
+              Malang, Indonesia
             </span>
           </motion.div>
 
@@ -36,11 +37,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-9"
           >
             <span className="text-foreground">World Agriculture, </span>
-            <span className="text-gradient">Strategic Innovation</span>
-            <span className="text-foreground"> & Cooperative Science</span>
+            <span className="text-gradient">Strategic Studies</span>
+            <span className="text-foreground"> & Innovation Science Competition</span>
+            <span className="text-gradient block mt-3"> (WASISC) 2026</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -61,18 +63,22 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Button variant="hero" size="xl">
-              Register Now
-              <ArrowRight className="w-5 h-5" />
-            </Button>
-            <Button variant="heroOutline" size="xl">
-              <Download className="w-5 h-5" />
-              Download Guidebook
-            </Button>
+            <Link to="/homeregist">
+              <Button variant="hero" size="xl">
+                Register Now
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+            </Link>
+            <Link to="/guidebook" target="_blank" rel="noopener noreferrer">
+              <Button variant="heroOutline" size="xl">
+                <Book className="w-5 h-5" />
+                Guidebook
+              </Button>
+            </Link>
           </motion.div>
 
           {/* Stats */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
@@ -93,12 +99,12 @@ const HeroSection = () => {
                 </div>
               </div>
             ))}
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
@@ -111,7 +117,7 @@ const HeroSection = () => {
             className="w-1.5 h-1.5 rounded-full bg-primary"
           />
         </div>
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 };

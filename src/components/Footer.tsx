@@ -39,12 +39,8 @@ const Footer = () => {
             className="lg:col-span-1"
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">W</span>
-              </div>
-              <div>
-                <div className="font-bold text-lg">WASICS & NASICS</div>
-                <div className="text-sm text-muted-foreground">2026</div>
+              <div className="w-full items-center justify-center pr-8">
+                <img src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1770278029/LOGO_WASICS_Revisi_mhkrln.png" alt="logo wasisc 2026  " />
               </div>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
@@ -127,10 +123,10 @@ const Footer = () => {
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-secondary flex-shrink-0" />
                 <a
-                  href="mailto:info@wasics2026.org"
+                  href="#!"
                   className="text-muted-foreground text-sm hover:text-secondary transition-colors"
                 >
-                  info@wasics2026.org
+                  info@wasisc2026.org
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -145,7 +141,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-muted/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-muted-foreground text-sm">
-              © {currentYear} WASICS & NASICS. All rights reserved.
+              © {currentYear} WASISC 2026. All rights reserved.
             </p>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <span>Organized by</span>
