@@ -8,7 +8,7 @@ const OrganizedBySection = () => {
 
   const organizers = [
     {
-      name: "Indonesian Young Scientist Association (IYSA)",
+      name: "Indonesian Young Scientist Association",
       role: "Main Organizer",
       logo: "https://res.cloudinary.com/dtik1z1qd/image/upload/v1770274542/Desain_tanpa_judul_4_bperwk.png",
     },

@@ -38,7 +38,7 @@ function HomeIndo() {
       setShowModal(false);
       window.location.href = redirectLink;
     } else {
-      alert("Harap setujui Syarat & Ketentuan untuk melanjutkan.");
+      alert("Please agree to the Terms & Conditions to proceed.");
     }
   };
 

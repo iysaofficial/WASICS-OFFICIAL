@@ -14,15 +14,13 @@ const Footer = () => {
     resources: [
       { name: "Guidebook", href: "#" },
       { name: "FAQs", href: "#" },
-      { name: "Terms & Conditions", href: "#" },
+      { name: "Terms & Conditions", href: "https://drive.google.com/file/d/1KOtyI8EZO42INO4Q_IeiTmBQCc_8JtTl/view?usp=sharing" },
       { name: "Privacy Policy", href: "#" },
     ],
   };
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
     { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Twitter, href: "#", label: "Twitter" },
     { icon: Youtube, href: "#", label: "YouTube" },
   ];
 

@@ -5,11 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Categories", href: "#categories" },
-  { name: "Schedule", href: "#schedule" },
-  { name: "Contact", href: "#contact" },
+  { name: "List of Winners", href: "#home" },
+  { name: "Curation", href: "#about" },
+  { name: "Certificates", href: "#categories" },
+  // { name: "Schedule", href: "#schedule" },
+  // { name: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {
