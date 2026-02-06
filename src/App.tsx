@@ -30,7 +30,6 @@ const App = () => (
           <Route path="/homeinter" element={<HomeInter />} />
           <Route path="/inter-online" element={<InternationalOnline />} />
           <Route path="/inter-offline" element={<InternationalOffline />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
