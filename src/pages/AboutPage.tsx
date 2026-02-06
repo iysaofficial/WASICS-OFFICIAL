@@ -86,7 +86,7 @@ const AboutPage = () => {
               className="relative rounded-2xl overflow-hidden h-96"
               whileHover="hover"
             >
-              <img src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1770346867/tarnus_malang_neaeje.jpg" alt="SMA Taruna Nusantara" className="w-full h-full object-cover" />
+              <img src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1770347927/tarnus_zpaccv.png" alt="SMA Taruna Nusantara" className="w-full h-full object-cover" />
               <motion.div
                 className="absolute inset-0 bg-black/20 p-6 flex flex-col justify-end"
                 variants={{
