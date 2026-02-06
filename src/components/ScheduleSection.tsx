@@ -7,8 +7,8 @@ const scheduleItems = [
   {
     date: "October 23, 2026",
     day: "Day 1",
-    title: "Opening Ceremony & Judging Day 1",
-    type: "Online",
+    title: "Opening Ceremony & Judging Day 1 (Online)",
+    type: "Online | Offline",
     icon: Monitor,
     description: "Grand opening ceremony followed by the first round of online judging sessions",
     highlight: true,
@@ -17,7 +17,7 @@ const scheduleItems = [
     date: "October 24, 2026",
     day: "Day 2",
     title: "Judging Day 1 (Offline) & Judging Day 2 (Online)",
-    type: "Hybrid",
+    type: "Online | Offline",
     icon: MapPin,
     description: "Offline judging at venue for selected participants, online judging continues",
     highlight: false,
@@ -26,7 +26,7 @@ const scheduleItems = [
     date: "October 25, 2026",
     day: "Day 3",
     title: "Judging Day 2 / Free Time",
-    type: "Flexible",
+    type: "Tentative",
     icon: Calendar,
     description: "Continued judging sessions and networking opportunities for participants",
     highlight: false,
@@ -35,7 +35,7 @@ const scheduleItems = [
     date: "October 26, 2026",
     day: "Day 4",
     title: "Awarding Ceremony",
-    type: "Hybrid",
+    type: "Online | Offline",
     icon: Trophy,
     description: "Grand finale celebration with awards presentation and closing ceremony",
     highlight: true,
@@ -131,9 +131,9 @@ const ScheduleSection = () => {
                         <div className="flex items-center gap-2 mb-1">
                           <span
                             className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
-                              item.type === "Online"
+                              item.type === "Online | Offline"
                                 ? "bg-accent/20 text-accent"
-                                : item.type === "Hybrid"
+                                : item.type === "Tentative"
                                 ? "bg-secondary/30 text-secondary-foreground"
                                 : "bg-muted text-muted-foreground"
                             }`}
