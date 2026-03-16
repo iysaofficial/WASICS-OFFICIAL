@@ -43,7 +43,7 @@ function InternationalOnline() {
     setSelectedCategory(value);
 
     switch (value) {
-      case "Jakarta International Science Fair - Online Competition":
+      case "World Agriculture, Strategic Studies & Innovation Science Competition - Online Competition":
         setCategoryPrice("RP 1.150.000");
         break;
       default:
@@ -256,7 +256,7 @@ function InternationalOnline() {
                     required
                   >
                     <option value="">--Choose Category Competition--</option>
-                    <option value="Jakarta International Science Fair - Online Competition">
+                    <option value="World Agriculture, Strategic Studies & Innovation Science Competition - Online Competition">
                       Online Competition
                     </option>
                   </select>

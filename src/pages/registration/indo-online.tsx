@@ -43,7 +43,7 @@ function IndonesiaOnline() {
     setSelectedCategory(value);
 
     switch (value) {
-      case "Jakarta International Science Fair - Online Competition":
+      case "World Agriculture, Strategic Studies & Innovation Science Competition - Online Competition":
         setCategoryPrice("RP 1.150.000");
         break;
       default:
@@ -60,7 +60,7 @@ function IndonesiaOnline() {
     }
   }, [navigate]);
 
-  const scriptURL = "";
+  const scriptURL = "https://script.google.com/macros/s/AKfycbyQnNJnPfM_aplZPWdf-3Ktsf5PKEslkhw7guiSDlfDY18Bt7XE9WQA8XbIi_iIwjRcdg/exec";
 
   useEffect(() => {
     const form = document.forms["regist-form"];
@@ -110,7 +110,7 @@ function IndonesiaOnline() {
         form.reset();
         setTimeout(() => {
           navigate(
-            `/thankyouinter?namaLengkap=${encodeURIComponent(
+            `/thankyou?namaLengkap=${encodeURIComponent(
               selectedMaxNamaLengkap
             )}&projectTitle=${encodeURIComponent(
               selectedMaxProject
@@ -256,7 +256,7 @@ function IndonesiaOnline() {
                     required
                   >
                     <option value="">--Choose Category Competition--</option>
-                    <option value="Jakarta International Science Fair - Online Competition">
+                    <option value="World Agriculture, Strategic Studies & Innovation Science Competition - Online Competition">
                       Online Competition
                     </option>
                   </select>

@@ -14,6 +14,7 @@ import InternationalOnline from "./pages/registration/inter-online";
 import InternationalOffline from "./pages/registration/inter-offline";
 import AboutPage from "./pages/AboutPage";
 import WinnersPage from "./pages/WinnersPage";
+import ThankYouPage from "./pages/thankyou";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/homeinter" element={<HomeInter />} />
           <Route path="/inter-online" element={<InternationalOnline />} />
           <Route path="/inter-offline" element={<InternationalOffline />} />
+          <Route path="/thankyou" element={<ThankYouPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

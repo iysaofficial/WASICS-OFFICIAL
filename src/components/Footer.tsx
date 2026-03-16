@@ -38,7 +38,7 @@ const Footer = () => {
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="w-64 md:w-full items-center justify-center pr-8">
-                <img src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1770278029/LOGO_WASICS_Revisi_mhkrln.png" alt="logo wasisc 2026  " />
+                <img src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1772783154/LOGO_WASICS_putih_ytqa3f.png" alt="logo wasisc 2026  " />
               </div>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
@@ -143,9 +143,9 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <span>Organized by</span>
-              <span className="font-semibold text-secondary">IYSA</span>
+              <span className="font-semibold text-secondary">Indonesian Young Scientist Association</span>
               <span>&</span>
-              <span className="font-semibold text-secondary">SMA Taruna Nusantara</span>
+              <span className="font-semibold text-secondary">SMA Taruna Nusantara Kampus Malang</span>
             </div>
           </div>
         </div>

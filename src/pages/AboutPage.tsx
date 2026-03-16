@@ -104,7 +104,7 @@ const AboutPage = () => {
                   variants={{ hover: { y: 0, opacity: 1 } }}
                   transition={{ duration: 0.3, delay: 0.2 }}
                 >
-                  SMA Taruna Nusantara is a boarding high school in Magelang, Central Java, Indonesia. Established in 1990, it has a reputation for producing future leaders.
+                  SMA Taruna Nusantara Kampus Malang is a boarding high school in Malang, East Java, Indonesia. Established in 1990, it has a reputation for producing future leaders.
                 </motion.p>
               </motion.div>
             </motion.div>

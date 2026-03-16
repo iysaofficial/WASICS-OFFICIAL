@@ -13,7 +13,7 @@ const OrganizedBySection = () => {
       logo: "https://res.cloudinary.com/dtik1z1qd/image/upload/v1770274542/Desain_tanpa_judul_4_bperwk.png",
     },
     {
-      name: "SMA Taruna Nusantara",
+      name: "SMA Taruna Nusantara Kampus Malang",
       role: "Co-Organizer",
       logo: "https://res.cloudinary.com/dtik1z1qd/image/upload/v1770274333/Desain_tanpa_judul_3_lbanwu.png",
     },
