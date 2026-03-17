@@ -43,7 +43,7 @@ function IndonesiaOffline() {
     setSelectedCategory(value);
 
     switch (value) {
-      case "Jakarta International Science Fair - Online Competition":
+      case "Jakarta International Science Fair - Offline Competition":
         setCategoryPrice("RP 1.150.000");
         break;
       default:
@@ -60,7 +60,7 @@ function IndonesiaOffline() {
     }
   }, [navigate]);
 
-  const scriptURL = "";
+  const scriptURL = "https://script.google.com/macros/s/AKfycbzQRAd2eTucR_iMUCn2I2t7ulJJGsgg87AXU8ro-ePIceFatVOokKPz7NuL78P3Z5Jwwg/exec";
 
   useEffect(() => {
     const form = document.forms["regist-form"];
@@ -110,7 +110,7 @@ function IndonesiaOffline() {
         form.reset();
         setTimeout(() => {
           navigate(
-            `/thankyouinter?namaLengkap=${encodeURIComponent(
+            `/thankyou?namaLengkap=${encodeURIComponent(
               selectedMaxNamaLengkap
             )}&projectTitle=${encodeURIComponent(
               selectedMaxProject
@@ -126,7 +126,7 @@ function IndonesiaOffline() {
       console.error("Error!", error.message);
       setStatusMessage("An error occurred while sending data.");
     } finally {
-       setTimeout(() => setIsLoading(false), 2000);
+      setTimeout(() => setIsLoading(false), 2000);
     }
   };
 
@@ -212,8 +212,8 @@ function IndonesiaOffline() {
                       {isLoading
                         ? "Submitting..."
                         : canClick
-                        ? "Continue"
-                        : `Please wait... ${countdown}`}
+                          ? "Continue"
+                          : `Please wait... ${countdown}`}
                     </button>
                   </div>
                 </div>
@@ -256,8 +256,8 @@ function IndonesiaOffline() {
                     required
                   >
                     <option value="">--Choose Category Competition--</option>
-                    <option value="Jakarta International Science Fair - Online Competition">
-                      Online Competition
+                    <option value="Jakarta International Science Fair - Offline Competition">
+                      Offline Competition
                     </option>
                   </select>
                 </div>
@@ -277,13 +277,13 @@ function IndonesiaOffline() {
                       with the following format:
                     </p>
                     <p className="pl-4">
-                      <i>- Kamal Putra Simatupang (Leader)</i>
+                      <i> Kamal Putra Simatupang </i>
                     </p>
                     <p className="pl-4">
-                      <i>- Nur Alif Rajaloa Hidayat</i>
+                      <i> Nur Alif Rajaloa Hidayat</i>
                     </p>
                     <p className="pl-4">
-                      <i>- Irsyad Zaidan</i>
+                      <i> Irsyad Zaidan</i>
                     </p>
                     <p>
                       <b>Note:</b> maximum 5 members + 1 team leader.

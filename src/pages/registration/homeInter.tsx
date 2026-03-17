@@ -48,8 +48,8 @@ function HomeInter() {
         <div className="w-full max-w-2xl">
           <div className="bg-white/90 backdrop-blur-lg rounded-2xl shadow-elevated p-8 md:p-12 text-center animate-fade-in-up">
             <div className="mb-8">
-              <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-4">
-                REGISTRASTION FORM
+              <h1 className="text-3xl md:text-4xl font-bold text-gradient mb-4">
+                REGISTRASTION FORM FOR INTERNATIONAL CITIZEN
               </h1>
               <h3 className="text-lg md:text-xl text-muted-foreground">
                 Choose Your Competition Category for WASISC 2026 Registration

@@ -15,6 +15,8 @@ function InternationalOffline() {
   const [showModal, setShowModal] = useState(false);
   const [countdown, setCountdown] = useState(5);
   const [canClick, setCanClick] = useState(false);
+  const [phoneCodes, setPhoneCodes] = useState<{ name: string; code: string }[]>([]);
+  const [phoneCodesLoading, setPhoneCodesLoading] = useState(true);
   const navigate = useNavigate();
 
   const handleInputNameChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -43,7 +45,7 @@ function InternationalOffline() {
     setSelectedCategory(value);
 
     switch (value) {
-      case "Jakarta International Science Fair - Online Competition":
+      case "World Agriculture, Strategic Studies & Innovation Science Competition - Offline Competition":
         setCategoryPrice("RP 1.150.000");
         break;
       default:
@@ -53,6 +55,35 @@ function InternationalOffline() {
   };
 
   useEffect(() => {
+    fetch("https://restcountries.com/v3.1/all?fields=name,idd")
+      .then((response) => response.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          const codes = data
+            .filter(
+              (country: any) =>
+                country.idd && country.idd.root && country.idd.suffixes
+            )
+            .map((country: any) => ({
+              name: country.name.common,
+              code:
+                country.idd.root +
+                (country.idd.suffixes ? country.idd.suffixes[0] : ""),
+            }))
+            .sort((a, b) => a.name.localeCompare(b.name));
+          setPhoneCodes(codes);
+        } else {
+          console.error("API response is not an array:", data);
+        }
+        setPhoneCodesLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching phone codes:", error);
+        setPhoneCodesLoading(false);
+      });
+  }, []);
+
+  useEffect(() => {
     const termsAccepted = sessionStorage.getItem("termsAccepted");
     if (!termsAccepted) {
       alert("You must agree to the Terms & Conditions first.");
@@ -60,7 +91,7 @@ function InternationalOffline() {
     }
   }, [navigate]);
 
-  const scriptURL = "";
+  const scriptURL = "https://script.google.com/macros/s/AKfycbxJiSZLaYwWpoDF0D3w4d2CWYyI83co1xGY-I3RPA_aZFMQ_mGGpk22PoXfoQSWjau4Gg/exec";
 
   useEffect(() => {
     const form = document.forms["regist-form"];
@@ -110,7 +141,7 @@ function InternationalOffline() {
         form.reset();
         setTimeout(() => {
           navigate(
-            `/thankyouinter?namaLengkap=${encodeURIComponent(
+            `/thankyou?namaLengkap=${encodeURIComponent(
               selectedMaxNamaLengkap
             )}&projectTitle=${encodeURIComponent(
               selectedMaxProject
@@ -126,7 +157,7 @@ function InternationalOffline() {
       console.error("Error!", error.message);
       setStatusMessage("An error occurred while sending data.");
     } finally {
-       setTimeout(() => setIsLoading(false), 2000);
+      setTimeout(() => setIsLoading(false), 2000);
     }
   };
 
@@ -212,8 +243,8 @@ function InternationalOffline() {
                       {isLoading
                         ? "Submitting..."
                         : canClick
-                        ? "Continue"
-                        : `Please wait... ${countdown}`}
+                          ? "Continue"
+                          : `Please wait... ${countdown}`}
                     </button>
                   </div>
                 </div>
@@ -256,8 +287,8 @@ function InternationalOffline() {
                     required
                   >
                     <option value="">--Choose Category Competition--</option>
-                    <option value="Jakarta International Science Fair - Online Competition">
-                      Online Competition
+                    <option value="World Agriculture, Strategic Studies & Innovation Science Competition - Offline Competition">
+                      Offline Competition
                     </option>
                   </select>
                 </div>
@@ -277,13 +308,13 @@ function InternationalOffline() {
                       with the following format:
                     </p>
                     <p className="pl-4">
-                      <i>- Kamal Putra Simatupang (Leader)</i>
+                      <i> Kamal Putra Simatupang </i>
                     </p>
                     <p className="pl-4">
-                      <i>- Nur Alif Rajaloa Hidayat</i>
+                      <i> Nur Alif Rajaloa Hidayat</i>
                     </p>
                     <p className="pl-4">
-                      <i>- Irsyad Zaidan</i>
+                      <i> Irsyad Zaidan</i>
                     </p>
                     <p>
                       <b>Note:</b> maximum 5 members + 1 team leader.
@@ -334,6 +365,36 @@ function InternationalOffline() {
                 </div>
                 <div className="mb-6">
                   <label
+                    htmlFor="PHONE_CODE"
+                    className="block text-sm font-medium text-foreground mb-2"
+                  >
+                    Phone Code
+                  </label>
+                  <div className="text-xs text-muted-foreground mt-1 mb-2">
+                    <p>
+                      <b>Notes:</b> Please select your country phone code.
+                    </p>
+                  </div>
+                  <select
+                    id="PHONE_CODE"
+                    name="PHONE_CODE"
+                    className="w-full px-4 py-2 bg-input border border-border rounded-md focus:ring-2 focus:ring-ring focus:outline-none"
+                    required
+                  >
+                    <option value="">--Choose Phone Code--</option>
+                    {phoneCodesLoading ? (
+                      <option value="" disabled>Loading...</option>
+                    ) : (
+                      phoneCodes.map((country) => (
+                        <option key={country.name} value={`${country.name} ${country.code}`}>
+                          {country.name} {country.code}
+                        </option>
+                      ))
+                    )}
+                  </select>
+                </div>
+                <div className="mb-6">
+                  <label
                     htmlFor="LEADER_EMAIL"
                     className="block text-sm font-medium text-foreground mb-2"
                   >
@@ -354,41 +415,6 @@ function InternationalOffline() {
                     placeholder="Input Your Leader Email Address"
                     required
                   />
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-1 gap-8">
-                <div className="mb-6">
-                  <label
-                    htmlFor="NISN_NIM"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
-                    NISN / NIM Team Leader & Team Member
-                  </label>
-                  <div className="text-xs text-muted-foreground mt-1 mb-2">
-                    <p>
-                      <b>Notes:</b> Enter the NISN / NIM in the order of the
-                      names of the team leader and team members, in the following
-                      format:
-                    </p>
-                    <p className="pl-4">
-                      <i>231700 (Kamal Putra Simatupang)</i>
-                    </p>
-                    <p className="pl-4">
-                      <i>241700 (Nur Alif Rajaloa Hidayat)</i>
-                    </p>
-                    <p className="pl-4">
-                      <i>251700 (Irsyad Zaidan)</i>
-                    </p>
-                  </div>
-                  <textarea
-                    id="NISN_NIM"
-                    name="NISN_NIM"
-                    className="w-full px-4 py-2 bg-input border border-border rounded-md focus:ring-2 focus:ring-ring focus:outline-none"
-                    placeholder="Input NISN / NIM Team Leader & Team Member"
-                    required
-                    rows={5}
-                  ></textarea>
                 </div>
               </div>
 
@@ -443,37 +469,6 @@ function InternationalOffline() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="mb-6">
                   <label
-                    htmlFor="NPSN"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
-                    Nomor Pokok Sekolah Nasional (NPSN)
-                  </label>
-                  <div className="text-xs text-muted-foreground mt-1 mb-2">
-                    <p>
-                      <b>Notes:</b> Enter the NPSN if you are still in school
-                      with the following the order of the names of the team
-                      leader and members, with the format as follows:
-                    </p>
-                    <p className="pl-4">
-                      <i>1201301 (SMA CERIA)</i>
-                    </p>
-                    <p className="pl-4">
-                      <i>1302402 (HAPPY HIGH SCHOOL)</i>
-                    </p>
-                    <p className="pl-4">
-                      <i>1020100 (SMA TADIKA MESRA)</i>
-                    </p>
-                  </div>
-                  <textarea
-                    id="NPSN"
-                    name="NPSN"
-                    className="w-full px-4 py-2 bg-input border border-border rounded-md focus:ring-2 focus:ring-ring focus:outline-none"
-                    placeholder="Input Nomor Pokok Sekolah Nasional (NPSN)"
-                    rows={5}
-                  ></textarea>
-                </div>
-                <div className="mb-6">
-                  <label
                     htmlFor="GRADE"
                     className="block text-sm font-medium text-foreground mb-2"
                   >
@@ -491,23 +486,27 @@ function InternationalOffline() {
                     <option value="University">University</option>
                   </select>
                 </div>
-              </div>
-              <div className="grid md:grid-cols-1 gap-8">
                 <div className="mb-6">
-                  <label
-                    htmlFor="PROVINCE"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
-                    Province
+                  <label htmlFor="COUNTRY" className="block text-sm font-medium text-foreground mb-2">
+                    Country
                   </label>
-                  <input
-                    type="text"
-                    id="PROVINCE"
-                    name="PROVINCE"
+                  <select
+                    id="COUNTRY"
+                    name="COUNTRY"
                     className="w-full px-4 py-2 bg-input border border-border rounded-md focus:ring-2 focus:ring-ring focus:outline-none"
-                    placeholder="Input your Province"
                     required
-                  />
+                  >
+                    <option value="">--Choose Country--</option>
+                    {phoneCodesLoading ? (
+                      <option value="" disabled>Loading...</option>
+                    ) : (
+                      phoneCodes.map((country) => (
+                        <option key={country.name} value={country.name}>
+                          {country.name}
+                        </option>
+                      ))
+                    )}
+                  </select>
                 </div>
               </div>
 
@@ -668,7 +667,7 @@ function InternationalOffline() {
                     rows={3}
                   ></textarea>
                 </div>
-                <div className="mb-6">
+                <div className="hidden mb-6">
                   <label
                     htmlFor="CATEGORY_PRICE"
                     className="block text-sm font-medium text-foreground mb-2"
@@ -689,32 +688,29 @@ function InternationalOffline() {
               <h1 className="text-2xl font-bold text-primary border-b-2 border-border pb-2 mb-6 mt-12">
                 GENERAL INFORMATION
               </h1>
-              <div className="grid md:grid-cols-1 gap-8">
+              <div className="grid md:grid-cols-2 gap-8">
                 <div className="mb-6">
                   <label
-                    htmlFor="COMPLETE_ADDRESS"
+                    htmlFor="SOSMED"
                     className="block text-sm font-medium text-foreground mb-2"
                   >
-                    Full Address
+                    If you don&apos;t have WhatsApp number, please write down
+                    your social media account. (Instagram/FB/Telegram/Line)
                   </label>
                   <div className="text-xs text-muted-foreground mt-1 mb-2">
                     <p>
-                      Please write down the complete address (Street Name,
-                      House Number, RT&RW, District, Regency, City, Province,
-                      Postal Code)
+                      Copy your URL link (Ex: https://www.instagram.com/iicyms_official/) or write your username (Ex: iysa_official)
                     </p>
                   </div>
-                  <textarea
-                    id="COMPLETE_ADDRESS"
-                    name="COMPLETE_ADDRESS"
+                  <input
+                    type="text"
+                    id="SOSMED"
+                    name="SOSMED"
                     className="w-full px-4 py-2 bg-input border border-border rounded-md focus:ring-2 focus:ring-ring focus:outline-none"
-                    placeholder="Input your Full Address"
+                    placeholder="Input Your Social Media Account "
                     required
-                    rows={5}
-                  ></textarea>
+                  />
                 </div>
-              </div>
-              <div className="grid md:grid-cols-2 gap-8">
                 <div className="mb-6">
                   <label
                     htmlFor="INFORMATION_RESOURCES"
@@ -745,21 +741,6 @@ function InternationalOffline() {
                     <option value="Previous Event">Previous Event</option>
                     <option value="Others">Others</option>
                   </select>
-                </div>
-                <div className="mb-6">
-                  <label
-                    htmlFor="FILE"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
-                    If you received free registration, please attach evidence.
-                  </label>
-                  <input
-                    type="url"
-                    id="FILE"
-                    name="FILE"
-                    className="w-full px-4 py-2 bg-input border border-border rounded-md focus:ring-2 focus:ring-ring focus:outline-none"
-                    placeholder="Upload Link Google Drive"
-                  />
                 </div>
               </div>
 

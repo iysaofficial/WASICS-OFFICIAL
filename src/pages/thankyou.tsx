@@ -7,10 +7,10 @@ const ThankYouPage = () => {
   const printRef = useRef<HTMLDivElement>(null);
 
   const data = {
-    "Nama Lengkap": searchParams.get("namaLengkap"),
-    "Judul Projek": searchParams.get("projectTitle"),
-    "Kategori": searchParams.get("category"),
-    "Nama Sekolah": searchParams.get("namasekolah"),
+    "Full Name": searchParams.get("namaLengkap"),
+    "Project Title": searchParams.get("projectTitle"),
+    "Category": searchParams.get("category"),
+    "School Name": searchParams.get("namasekolah"),
   };
 
   const handleDownloadImage = async () => {
@@ -27,7 +27,7 @@ const ThankYouPage = () => {
       const link = document.createElement("a");
 
       link.href = data;
-      link.download = "bukti-pendaftaran.jpeg";
+      link.download = `proof of registration WASICS 2026 ${searchParams.get("namaLengkap")} - ${searchParams.get("projectTitle")}.jpeg`;
 
       document.body.appendChild(link);
       link.click();
@@ -44,19 +44,19 @@ const ThankYouPage = () => {
             className="bg-white text-card-foreground p-8 md:p-12"
           >
             <h1 className="text-4xl md:text-5xl font-extrabold text-primary pb-4 border-b-4 border-secondary mb-8 inline-block">
-              Terima Kasih!
+              Thank You!
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
-              Pendaftaran Anda telah berhasil diserahkan. Berikut adalah rincian
-              data yang Anda kirimkan. Silakan ambil tangkapan layar halaman ini
-              sebagai bukti pendaftaran Anda.
+              Your registration has been successfully submitted. Here are the details
+              of the data you submitted. Please take a screenshot of this page
+              as proof of your registration.
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead className="bg-muted">
                   <tr>
-                    <th className="p-4 border border-border">Keterangan</th>
+                    <th className="p-4 border border-border">Description</th>
                     <th className="p-4 border border-border">Data</th>
                   </tr>
                 </thead>
@@ -79,13 +79,13 @@ const ThankYouPage = () => {
             onClick={handleDownloadImage}
             className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-lg transition-colors shadow-md"
           >
-            Unduh Bukti Pendaftaran
+            Download Proof of Registration
           </button>
           <Link
             to="/homeregist"
             className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-3 rounded-lg transition-colors shadow-md"
           >
-            Kembali ke Pendaftaran
+            Back to Registration
           </Link>
         </div>
       </div>

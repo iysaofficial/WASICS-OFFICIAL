@@ -126,7 +126,7 @@ function IndonesiaOnline() {
       console.error("Error!", error.message);
       setStatusMessage("An error occurred while sending data.");
     } finally {
-       setTimeout(() => setIsLoading(false), 2000);
+      setTimeout(() => setIsLoading(false), 2000);
     }
   };
 
@@ -212,8 +212,8 @@ function IndonesiaOnline() {
                       {isLoading
                         ? "Submitting..."
                         : canClick
-                        ? "Continue"
-                        : `Please wait... ${countdown}`}
+                          ? "Continue"
+                          : `Please wait... ${countdown}`}
                     </button>
                   </div>
                 </div>
@@ -277,13 +277,13 @@ function IndonesiaOnline() {
                       with the following format:
                     </p>
                     <p className="pl-4">
-                      <i>- Kamal Putra Simatupang (Leader)</i>
+                      <i> Kamal Putra Simatupang </i>
                     </p>
                     <p className="pl-4">
-                      <i>- Nur Alif Rajaloa Hidayat</i>
+                      <i> Nur Alif Rajaloa Hidayat</i>
                     </p>
                     <p className="pl-4">
-                      <i>- Irsyad Zaidan</i>
+                      <i> Irsyad Zaidan</i>
                     </p>
                     <p>
                       <b>Note:</b> maximum 5 members + 1 team leader.
