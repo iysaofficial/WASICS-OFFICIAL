@@ -139,6 +139,15 @@ function IndonesiaOffline() {
               REGISTRATION FORM
             </h1>
             <div className="w-24 h-1.5 bg-secondary rounded-full mb-8"></div>
+            
+            <a
+              href="/homeindo"
+              className="group inline-flex items-center justify-center px-4 py-2 bg-destructive text-destructive-foreground font-semibold rounded-lg text-sm hover:bg-opacity-90 transition-all duration-300 shadow-soft mb-6"
+            >
+              <i className="fas fa-arrow-left mr-2 transition-transform duration-300 group-hover:-translate-x-1"></i>
+              Back to Registration Options
+            </a>
+
             <h4 className="text-lg font-semibold text-foreground mb-4">
               HELLO WASISC 2026 INDONESIAN CITIZEN, Please consider the following
               information before filling out the registration form:

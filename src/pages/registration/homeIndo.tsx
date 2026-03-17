@@ -80,6 +80,13 @@ function HomeIndo() {
                 Offline Competition
                 <i className="fas fa-building ml-2"></i>
               </a>
+              <a
+                href="/homeregist"
+                className="group flex items-center justify-center p-3 bg-destructive text-destructive-foreground font-semibold rounded-lg text-sm hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-soft md:col-span-2 mt-2 max-w-sm mx-auto w-full"
+              >
+                <i className="fas fa-arrow-left mr-2 transition-transform duration-300 group-hover:-translate-x-1"></i>
+                Back to Registration Options
+              </a>
             </div>
           </div>
         </div>

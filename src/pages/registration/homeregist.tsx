@@ -27,6 +27,13 @@ function HomeRegist() {
                 INTERNATIONAL CITIZEN
                 <i className="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
               </a>
+              <a
+                href="/"
+                className="group flex items-center justify-center p-3 bg-destructive text-destructive-foreground font-semibold rounded-lg text-sm hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-soft md:col-span-2 mt-2 max-w-sm mx-auto w-full"
+              >
+                <i className="fas fa-arrow-left mr-2 transition-transform duration-300 group-hover:-translate-x-1"></i>
+                Back to Home
+              </a>
             </div>
           </div>
         </div>
