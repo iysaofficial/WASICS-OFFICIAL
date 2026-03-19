@@ -12,7 +12,7 @@ const Footer = () => {
       { name: "Schedule", href: "#schedule" },
     ],
     resources: [
-      { name: "Guidebook", href: "#" },
+      { name: "Guidebook", href: "https://drive.google.com/file/d/1KfXvKOWGs_rpP0M2DRln8EHbO_Rvj84q/view?usp=sharing" },
       { name: "FAQs", href: "#" },
       { name: "Terms & Conditions", href: "https://drive.google.com/file/d/1KOtyI8EZO42INO4Q_IeiTmBQCc_8JtTl/view?usp=sharing" },
       { name: "Privacy Policy", href: "#" },
@@ -42,7 +42,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-              World Agriculture, Strategic Innovation & Cooperative Science Competition. 
+              World Agriculture, Strategic Innovation & Cooperative Science Competition.
               Empowering young researchers worldwide.
             </p>
             <div className="flex gap-3">
