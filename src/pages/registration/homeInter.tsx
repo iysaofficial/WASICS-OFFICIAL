@@ -157,7 +157,7 @@ function HomeInter() {
                       e.preventDefault();
                       handleViewTerms();
                     }}
-                    className="font-semibold text-primary hover:underline"
+                    className="font-semibold text-primary underline"
                   >
                     Terms & Conditions
                   </a>
