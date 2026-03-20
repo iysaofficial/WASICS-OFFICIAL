@@ -46,7 +46,13 @@ function InternationalOnline() {
 
     switch (value) {
       case "World Agriculture, Strategic Studies & Innovation Science Competition - Online Competition":
-        setCategoryPrice("RP 1.150.000");
+        setCategoryPrice("105 USD");
+        break;
+      case "World Agriculture, Strategic Studies & Innovation Science Competition - Online Competition + Certificate and Medal (SOUTH EAST ASIA)":
+        setCategoryPrice("225 USD");
+        break;
+      case "World Agriculture, Strategic Studies & Innovation Science Competition - Online Competition + Certificate and Medal (Exclude SOUTH EAST ASIA)":
+        setCategoryPrice("275 USD");
         break;
       default:
         setCategoryPrice("");
@@ -298,6 +304,12 @@ function InternationalOnline() {
                     <option value="">--Choose Category Competition--</option>
                     <option value="World Agriculture, Strategic Studies & Innovation Science Competition - Online Competition">
                       Online Competition
+                    </option>
+                    <option value="World Agriculture, Strategic Studies & Innovation Science Competition - Online Competition + Certificate and Medal (SOUTH EAST ASIA)">
+                      Online Competition + Certificate and Medal (SOUTH EAST ASIA)
+                    </option>
+                    <option value="World Agriculture, Strategic Studies & Innovation Science Competition - Online Competition + Certificate and Medal (Exclude SOUTH EAST ASIA)">
+                      Online Competition + Certificate and Medal (Exclude SOUTH EAST ASIA)
                     </option>
                   </select>
                 </div>

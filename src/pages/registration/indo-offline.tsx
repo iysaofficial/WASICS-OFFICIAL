@@ -43,8 +43,8 @@ function IndonesiaOffline() {
     setSelectedCategory(value);
 
     switch (value) {
-      case "Jakarta International Science Fair - Offline Competition":
-        setCategoryPrice("RP 1.150.000");
+      case "World Agriculture, Strategic Studies & Innovation Science Competition - Offline Competition":
+        setCategoryPrice("RP 3.150.000");
         break;
       default:
         setCategoryPrice("");
@@ -139,7 +139,7 @@ function IndonesiaOffline() {
               REGISTRATION FORM
             </h1>
             <div className="w-24 h-1.5 bg-secondary rounded-full mb-8"></div>
-            
+
             <a
               href="/homeindo"
               className="group inline-flex items-center justify-center px-4 py-2 bg-destructive text-destructive-foreground font-semibold rounded-lg text-sm hover:bg-opacity-90 transition-all duration-300 shadow-soft mb-6"
@@ -265,7 +265,7 @@ function IndonesiaOffline() {
                     required
                   >
                     <option value="">--Choose Category Competition--</option>
-                    <option value="Jakarta International Science Fair - Offline Competition">
+                    <option value="World Agriculture, Strategic Studies & Innovation Science Competition - Offline Competition">
                       Offline Competition
                     </option>
                   </select>
@@ -677,7 +677,7 @@ function IndonesiaOffline() {
                     rows={3}
                   ></textarea>
                 </div>
-                <div className="mb-6">
+                <div className="mb-6 hidden">
                   <label
                     htmlFor="CATEGORY_PRICE"
                     className="block text-sm font-medium text-foreground mb-2"

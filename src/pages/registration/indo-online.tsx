@@ -139,7 +139,7 @@ function IndonesiaOnline() {
               REGISTRATION FORM
             </h1>
             <div className="w-24 h-1.5 bg-secondary rounded-full mb-8"></div>
-            
+
             <a
               href="/homeindo"
               className="group inline-flex items-center justify-center px-4 py-2 bg-destructive text-destructive-foreground font-semibold rounded-lg text-sm hover:bg-opacity-90 transition-all duration-300 shadow-soft mb-6"
@@ -677,7 +677,7 @@ function IndonesiaOnline() {
                     rows={3}
                   ></textarea>
                 </div>
-                <div className="mb-6">
+                <div className="mb-6 hidden">
                   <label
                     htmlFor="CATEGORY_PRICE"
                     className="block text-sm font-medium text-foreground mb-2"

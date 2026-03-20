@@ -46,7 +46,10 @@ function InternationalOffline() {
 
     switch (value) {
       case "World Agriculture, Strategic Studies & Innovation Science Competition - Offline Competition":
-        setCategoryPrice("RP 1.150.000");
+        setCategoryPrice("");
+        break;
+      case "World Agriculture, Strategic Studies & Innovation Science Competition - Offline Competition + Full Package":
+        setCategoryPrice("");
         break;
       default:
         setCategoryPrice("");
@@ -298,6 +301,9 @@ function InternationalOffline() {
                     <option value="">--Choose Category Competition--</option>
                     <option value="World Agriculture, Strategic Studies & Innovation Science Competition - Offline Competition">
                       Offline Competition
+                    </option>
+                    <option value="World Agriculture, Strategic Studies & Innovation Science Competition - Offline Competition + Full Package">
+                      Offline Competition + Full Package
                     </option>
                   </select>
                 </div>
