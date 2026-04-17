@@ -55,7 +55,7 @@ function HomeInter() {
               <a
                 href="#!"
                 role="button"
-                className="group flex items-center justify-center p-6 bg-secondary text-secondary-foreground font-semibold rounded-lg text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-soft"
+                className="group flex items-center justify-center p-6 bg-secondary text-secondary-foreground font-bold rounded-2xl text-lg transition-all duration-500 ease-out hover:scale-105 active:scale-95 shadow-md hover:shadow-xl hover:bg-[#e2e8f0] border border-border/50"
                 onClick={(e) => {
                   e.preventDefault();
                   handleOpenModal("/inter-online", "internationalOnline");
@@ -67,7 +67,7 @@ function HomeInter() {
               <a
                 href="#!"
                 role="button"
-                className="group flex items-center justify-center p-6 bg-primary text-primary-foreground font-semibold rounded-lg text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-soft"
+                className="group flex items-center justify-center p-6 bg-gradient-to-r from-primary to-[#2a7a5f] text-primary-foreground font-bold rounded-2xl text-lg transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:-translate-y-1 active:scale-95 shadow-[0_8px_20px_rgba(16,185,129,0.3)] hover:shadow-[0_12px_30px_rgba(16,185,129,0.5)] border border-primary/20"
                 onClick={(e) => {
                   e.preventDefault();
                   handleOpenModal("/inter-offline", "internationalOffline");
@@ -78,7 +78,7 @@ function HomeInter() {
               </a>
               <a
                 href="/homeregist"
-                className="group flex items-center justify-center p-3 bg-destructive text-destructive-foreground font-semibold rounded-lg text-sm hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-soft md:col-span-2 mt-2 max-w-sm mx-auto w-full"
+                className="group flex items-center justify-center p-4 bg-gradient-to-r from-destructive to-[#e11d48] text-destructive-foreground font-bold rounded-xl text-sm transition-all duration-500 ease-out hover:-translate-y-1 active:scale-95 shadow-lg shadow-destructive/30 hover:shadow-destructive/50 hover:shadow-xl md:col-span-2 mt-4 max-w-sm mx-auto w-full"
               >
                 <i className="fas fa-arrow-left mr-2 transition-transform duration-300 group-hover:-translate-x-1"></i>
                 Back to Registration Options

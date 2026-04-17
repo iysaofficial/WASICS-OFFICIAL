@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Award, Globe2, Users, Target } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const AboutSection = () => {
@@ -70,9 +71,11 @@ const AboutSection = () => {
             </p>
 
             <div className="mt-2">
-              <a href="/about" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8">
-                Read More
-              </a>
+              <Button asChild size="lg" className="px-10 font-bold rounded-2xl">
+                <a href="/about">
+                  Read More
+                </a>
+              </Button>
             </div>
 
           </motion.div>
