@@ -1,9 +1,40 @@
-import { motion } from "framer-motion";
-import { ArrowRight, Book, Map, Globe2, Lightbulb, Compass, Leaf, Atom } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Book, Map, Globe2, Lightbulb, Compass, Leaf, Atom, X, ExternalLink, FileText, Scale } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<"guidebook" | "tnc">("guidebook");
+
+  // Prevent background scrolling when modal is open
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => { document.body.style.overflow = "unset"; };
+  }, [isModalOpen]);
+
+  const docs = {
+    // Link Drive utama yang berisi Folder "Guidebook & T&C" untuk diakses langsung
+    externalDriveFolderLink: "https://drive.google.com/drive/folders/1Rpn57QJy2b0rAEQeMxbKQPQal4oZs_B-", // TODO: Tempelkan link folder Google Drive Anda di sini
+    tabs: {
+      guidebook: {
+        name: "Guidebook",
+        icon: <Book className="w-4 h-4 mr-2" />,
+        embedLink: "https://drive.google.com/file/d/1KfXvKOWGs_rpP0M2DRln8EHbO_Rvj84q/preview",
+      },
+      tnc: {
+        name: "Terms & Conditions",
+        icon: <Scale className="w-4 h-4 mr-2" />,
+        embedLink: "https://drive.google.com/file/d/1KOtyI8EZO42INO4Q_IeiTmBQCc_8JtTl/preview",
+      }
+    }
+  };
+
   return (
     <section
       id="home"
@@ -95,12 +126,10 @@ const HeroSection = () => {
                 <ArrowRight className="w-5 h-5" />
               </Button>
             </Link>
-            <Link to="https://drive.google.com/file/d/1KfXvKOWGs_rpP0M2DRln8EHbO_Rvj84q/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-              <Button variant="heroOutline" size="xl">
-                <Book className="w-5 h-5" />
-                Guidebook
-              </Button>
-            </Link>
+            <Button variant="heroOutline" size="xl" onClick={() => setIsModalOpen(true)}>
+              <FileText className="w-5 h-5" />
+              Guidebook
+            </Button>
           </motion.div>
 
           {/* Stats */}
@@ -130,20 +159,76 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll Indicator */}
-      {/* <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2">
+      {/* <motion.div ... /> */}
+
+      {/* Document Portal Modal */}
+      <AnimatePresence>
+        {isModalOpen && (
           <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-1.5 h-1.5 rounded-full bg-primary"
-          />
-        </div>
-      </motion.div> */}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-md"
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="bg-background/95 w-full max-w-5xl h-[85vh] rounded-3xl flex flex-col shadow-2xl border border-white/20 overflow-hidden"
+            >
+              {/* Modal Header */}
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 border-b border-border bg-muted/30">
+
+                {/* Tabs / Segmented Control */}
+                <div className="flex p-1 bg-secondary/20 rounded-xl w-full sm:w-auto overflow-x-auto">
+                  {(["guidebook", "tnc"] as const).map((tab) => (
+                    <button
+                      key={tab}
+                      onClick={() => setActiveTab(tab)}
+                      className={`flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-lg transition-all whitespace-nowrap ${activeTab === tab
+                        ? "bg-background text-foreground shadow-sm"
+                        : "text-muted-foreground hover:text-foreground hover:bg-black/5"
+                        }`}
+                    >
+                      {docs.tabs[tab].icon}
+                      {docs.tabs[tab].name}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Actions */}
+                <div className="flex items-center gap-3 self-end sm:self-auto w-full sm:w-auto justify-between sm:justify-end">
+                  <a
+                    href={docs.externalDriveFolderLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors bg-primary/10 px-4 py-2 rounded-lg"
+                  >
+                    Open Externally <ExternalLink className="w-4 h-4 ml-2" />
+                  </a>
+                  <button
+                    onClick={() => setIsModalOpen(false)}
+                    className="w-9 h-9 rounded-full bg-muted/50 flex items-center justify-center hover:bg-destructive/10 hover:text-destructive transition-colors"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Modal Body / Iframe Emded */}
+              <div className="flex-1 bg-muted/10 relative">
+                <iframe
+                  src={docs.tabs[activeTab].embedLink}
+                  className="absolute inset-0 w-full h-full border-0"
+                  allow="autoplay"
+                  title={docs.tabs[activeTab].name}
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
