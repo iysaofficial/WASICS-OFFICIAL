@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Book, Download, Map, Sparkles, View } from "lucide-react";
+import { ArrowRight, Book, Map, Globe2, Lightbulb, Compass, Leaf, Atom } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -16,6 +16,32 @@ const HeroSection = () => {
 
       {/* Grid Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--primary)/0.03)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.03)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+
+      {/* Floating Animated Background Icons (Watermark Style) */}
+      {[
+        { Icon: Globe2, className: "w-32 h-32 md:w-64 md:h-64 top-[5%] left-[-10%] md:top-10 md:left-5 text-primary/[0.08] md:text-primary/[0.16]", y: -30, x: 20, rotate: 10 },
+        { Icon: Lightbulb, className: "w-24 h-24 md:w-56 md:h-56 bottom-[10%] left-[5%] md:bottom-20 md:left-24 text-secondary/[0.05] md:text-secondary/[0.12]", y: 40, x: -20, rotate: -15 },
+        { Icon: Compass, className: "w-40 h-40 md:w-72 md:h-72 top-[15%] right-[-15%] md:top-20 md:right-10 text-primary/[0.12] md:text-primary/[0.12]", y: -50, x: -30, rotate: 20 },
+        { Icon: Leaf, className: "w-28 h-28 md:w-48 md:h-48 bottom-[5%] right-[-5%] md:bottom-32 md:right-24 text-primary/[0.08] md:text-primary/[0.16]", y: 30, x: 40, rotate: -10 },
+        { Icon: Atom, className: "hidden md:block w-[30rem] h-[30rem] top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-primary/[0.08]", y: -20, x: 20, rotate: 45 },
+      ].map((item, i) => (
+        <motion.div
+          key={i}
+          className={`absolute pointer-events-none z-0 ${item.className}`}
+          animate={{
+            y: [0, item.y, 0],
+            x: [0, item.x, 0],
+            rotate: [0, item.rotate, 0],
+          }}
+          transition={{
+            duration: 20 + i * 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <item.Icon strokeWidth={1} className="w-full h-full" />
+        </motion.div>
+      ))}
 
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto text-center">

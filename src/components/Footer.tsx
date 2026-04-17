@@ -115,7 +115,7 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
                 <span className="text-muted-foreground text-sm">
-                  SMA Taruna Nusantara, Malang, East Java, Indonesia
+                  SMA Taruna Nusantara Kampus Malang, Malang, East Java, Indonesia
                 </span>
               </li>
               <li className="flex items-center gap-3">

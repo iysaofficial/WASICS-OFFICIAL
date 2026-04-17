@@ -91,7 +91,7 @@ const CategoriesSection = () => {
             <span className="text-gradient">Scientific Excellence</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Choose your category and showcase your research in one of these 
+            Choose your category and showcase your research in one of these
             impactful fields of study.
           </p>
         </motion.div>
@@ -103,21 +103,27 @@ const CategoriesSection = () => {
               key={category.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.1 + index * 0.05 }}
-              className="group relative p-6 bg-card rounded-2xl border border-border shadow-soft hover:shadow-elevated hover:-translate-y-2 transition-all duration-300 cursor-pointer overflow-hidden"
+              transition={{ duration: 0.5, delay: 0.1 + index * 0.05, type: "spring", stiffness: 80 }}
+              className="group relative pt-5 px-4 pb-16 md:pt-6 md:px-6 md:pb-24 bg-card/80 backdrop-blur-sm rounded-3xl border border-border shadow-soft hover:shadow-elevated hover:-translate-y-2 transition-all duration-500 cursor-pointer overflow-hidden min-h-[160px] md:min-h-[190px] flex flex-col justify-start items-center text-center"
             >
-              {/* Gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
-              <div className="relative z-10 flex flex-col items-center text-center">
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                  <category.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
-                </div>
-                <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+              {/* Hover Ambient Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              {/* Bottom Attached Watermark Icon */}
+              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 pointer-events-none z-0">
+                <category.icon
+                  strokeWidth={1}
+                  className="w-28 h-28 md:w-36 md:h-36 text-primary/[0.08] group-hover:text-primary/[0.20] transition-all duration-700 ease-out group-hover:-translate-y-2 group-hover:scale-110"
+                />
+              </div>
+
+              {/* Foreground Content */}
+              <div className="relative z-10 flex flex-col items-center">
+                <h3 className="font-bold text-foreground text-sm md:text-base leading-snug mb-1.5 group-hover:text-primary transition-colors duration-300">
                   {category.title}
                 </h3>
-                { !isMobile && (
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                {!isMobile && (
+                  <p className="text-muted-foreground text-xs md:text-sm leading-relaxed max-w-[98%]">
                     {category.description}
                   </p>
                 )}

@@ -13,14 +13,11 @@ function HomeIndo() {
     list: string[];
     paragraphs: string[];
   } | null>(null);
-  const [hasViewedTerms, setHasViewedTerms] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(false);
 
   const handleOpenModal = (link: string, termsKey: TermsKey) => {
     setRedirectLink(link); // Set link tujuan redirect
     setTermsContent(termsData[termsKey]); // Set isi terms sesuai pilihan
     setTermsAccepted(false); // Reset state persetujuan
-    setHasViewedTerms(false); // Reset state sudah melihat
     setShowModal(true); // Tampilkan modal
   };
 
@@ -29,7 +26,6 @@ function HomeIndo() {
       "https://drive.google.com/file/d/1KOtyI8EZO42INO4Q_IeiTmBQCc_8JtTl/view?usp=sharing",
       "_blank"
     );
-    setHasViewedTerms(true);
   };
 
   const handleAccept = () => {
@@ -126,27 +122,14 @@ function HomeIndo() {
             </div>
             <div className="p-6 bg-muted/50 rounded-b-2xl">
               <div className="flex items-center mb-4">
-                <div
-                  className="relative"
-                  onMouseEnter={() => !hasViewedTerms && setShowTooltip(true)}
-                  onMouseLeave={() => setShowTooltip(false)}
-                  onClick={() =>
-                    !hasViewedTerms && setShowTooltip(!showTooltip)
-                  }
-                >
+                <div className="relative flex items-center h-5 w-5">
                   <input
                     type="checkbox"
                     id="terms"
                     className="h-5 w-5 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
                     checked={termsAccepted}
-                    disabled={!hasViewedTerms}
                     onChange={(e) => setTermsAccepted(e.target.checked)}
                   />
-                  {showTooltip && (
-                    <div className="absolute bottom-full mb-2 w-max bg-black text-white text-xs rounded py-1 px-2">
-                      Please review the Terms & Conditions link first.
-                    </div>
-                  )}
                 </div>
                 <label htmlFor="terms" className="ml-3 text-sm text-foreground">
                   I Have Read and Accept the{" "}

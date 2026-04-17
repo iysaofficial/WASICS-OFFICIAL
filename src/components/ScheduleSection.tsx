@@ -1,43 +1,61 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Calendar, MapPin, Monitor, Trophy } from "lucide-react";
+import { Calendar, MapPin, Monitor, Trophy, Clock, FileText } from "lucide-react";
 
 const scheduleItems = [
   {
-    date: "October 23, 2026",
+    date: "September 4th, 2026",
+    day: "Deadline",
+    title: "Registration Deadline",
+    type: "Online | Offline",
+    icon: Clock,
+    description: "Final date to submit team registrations for the competition.",
+    highlight: false,
+  },
+  {
+    date: "September 11th, 2026",
+    day: "Deadline",
+    title: "Payment & Submission Deadline",
+    type: "Online | Offline",
+    icon: FileText,
+    description: "Deadline to complete necessary payments and submit project details.",
+    highlight: false,
+  },
+  {
+    date: "October 23rd, 2026",
     day: "Day 1",
-    title: "Opening Ceremony & Judging Day 1 (Online)",
+    title: "Opening Ceremony & Online Judging",
     type: "Online | Offline",
     icon: Monitor,
-    description: "Grand opening ceremony followed by the first round of online judging sessions",
+    description: "Opening Ceremony for all participants, followed by Online Judging for online participants.",
     highlight: true,
   },
   {
-    date: "October 24, 2026",
+    date: "October 24th, 2026",
     day: "Day 2",
-    title: "Judging Day 1 (Offline) & Judging Day 2 (Online)",
-    type: "Online | Offline",
+    title: "Offline Judging Session",
+    type: "Offline",
     icon: MapPin,
-    description: "Offline judging at venue for selected participants, online judging continues",
+    description: "In-person offline judging sessions at the venue for onsite participants.",
     highlight: false,
   },
   {
-    date: "October 25, 2026",
+    date: "October 25th, 2026",
     day: "Day 3",
-    title: "Judging Day 2 / Free Time",
-    type: "Tentative",
+    title: "Free Time",
+    type: "Offline",
     icon: Calendar,
-    description: "Continued judging sessions and networking opportunities for participants",
+    description: "Free time for offline participants to relax and explore.",
     highlight: false,
   },
   {
-    date: "October 26, 2026",
+    date: "October 26th, 2026",
     day: "Day 4",
     title: "Awarding Ceremony",
     type: "Online | Offline",
     icon: Trophy,
-    description: "Grand finale celebration with awards presentation and closing ceremony",
+    description: "Grand finale celebration with online and offline awarding ceremonies.",
     highlight: true,
   },
 ];
@@ -60,11 +78,11 @@ const ScheduleSection = () => {
             Event Schedule
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Four Days of{" "}
+            Days of{" "}
             <span className="text-gradient">Scientific Discovery</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Mark your calendar for these important dates. Join us for an 
+            Mark your calendar for these important dates. Join us for an
             unforgettable journey of innovation and discovery.
           </p>
         </motion.div>
@@ -81,18 +99,16 @@ const ScheduleSection = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                className={`relative flex items-start gap-8 mb-8 last:mb-0 ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
+                className={`relative flex items-start gap-8 mb-8 last:mb-0 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  }`}
               >
                 {/* Timeline Dot */}
                 <div className="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background shadow-glow -translate-x-1/2 z-10" />
 
                 {/* Date Badge (Desktop) */}
                 <div
-                  className={`hidden md:flex flex-1 ${
-                    index % 2 === 0 ? "justify-end pr-12" : "justify-start pl-12"
-                  }`}
+                  className={`hidden md:flex flex-1 ${index % 2 === 0 ? "justify-end pr-12" : "justify-start pl-12"
+                    }`}
                 >
                   <div className="text-right">
                     <div className="text-sm font-semibold text-primary">{item.day}</div>
@@ -103,50 +119,50 @@ const ScheduleSection = () => {
                 {/* Content Card */}
                 <div className={`flex-1 ml-16 md:ml-0 ${index % 2 === 0 ? "md:pl-12" : "md:pr-12"}`}>
                   <div
-                    className={`p-6 rounded-2xl border ${
-                      item.highlight
-                        ? "bg-primary/5 border-primary/20"
-                        : "bg-card border-border"
-                    } shadow-soft hover:shadow-elevated transition-all duration-300`}
+                    className={`relative overflow-hidden p-6 rounded-2xl border ${item.highlight
+                      ? "bg-primary/5 border-primary/20"
+                      : "bg-card border-border"
+                      } shadow-soft hover:shadow-elevated transition-all duration-300 group`}
                   >
-                    {/* Mobile Date */}
-                    <div className="md:hidden mb-3">
-                      <span className="text-xs font-semibold text-primary">{item.day}</span>
-                      <span className="text-xs text-muted-foreground ml-2">{item.date}</span>
+                    {/* Left Attached Watermark Icon */}
+                    <div className="absolute top-1/2 -translate-y-1/2 left-0 pointer-events-none z-0">
+                      <item.icon
+                        className={`w-28 h-28 md:w-32 md:h-32 -translate-x-1/4 opacity-[0.08] transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-2 group-hover:scale-110 group-hover:rotate-12 group-hover:opacity-[0.15] ${item.highlight ? "text-primary" : "text-foreground"
+                          }`}
+                      />
                     </div>
 
-                    <div className="flex items-start gap-4">
-                      <div
-                        className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${
-                          item.highlight ? "bg-primary" : "bg-primary/10"
-                        }`}
-                      >
-                        <item.icon
-                          className={`w-6 h-6 ${
-                            item.highlight ? "text-primary-foreground" : "text-primary"
-                          }`}
-                        />
+                    <div className="relative z-10">
+                      {/* Mobile Date */}
+                      <div className="md:hidden mb-3">
+                        <span className="text-xs font-semibold text-primary">{item.day}</span>
+                        <span className="text-xs text-muted-foreground ml-2">{item.date}</span>
                       </div>
-                      <div>
-                        <div className="flex items-center gap-2 mb-1">
-                          <span
-                            className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
-                              item.type === "Online | Offline"
+
+                      <div className="flex items-start gap-4">
+                        {/* Spacer to perfectly maintain exact previous layout distance */}
+                        <div className="w-12 flex-shrink-0" />
+
+                        <div>
+                          <div className="flex items-center gap-2 mb-1">
+                            <span
+                              className={`text-xs font-semibold px-2 py-0.5 rounded-full ${item.type === "Online | Offline"
                                 ? "bg-accent/20 text-accent"
-                                : item.type === "Tentative"
-                                ? "bg-secondary/30 text-secondary-foreground"
-                                : "bg-muted text-muted-foreground"
-                            }`}
-                          >
-                            {item.type}
-                          </span>
+                                : item.type === "Offline" || item.type === "Tentative"
+                                  ? "bg-secondary/30 text-secondary-foreground"
+                                  : "bg-muted text-muted-foreground"
+                                }`}
+                            >
+                              {item.type}
+                            </span>
+                          </div>
+                          <h3 className="font-bold text-foreground text-lg mb-2">
+                            {item.title}
+                          </h3>
+                          <p className="text-muted-foreground text-sm">
+                            {item.description}
+                          </p>
                         </div>
-                        <h3 className="font-bold text-foreground text-lg mb-2">
-                          {item.title}
-                        </h3>
-                        <p className="text-muted-foreground text-sm">
-                          {item.description}
-                        </p>
                       </div>
                     </div>
                   </div>

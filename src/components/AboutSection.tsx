@@ -51,9 +51,9 @@ const AboutSection = () => {
               <span className="text-gradient">Sustainable Future</span>
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              WASISC 2026 is a premier international science competition 
-              bringing together talented students from Junior High to University level. 
-              This groundbreaking event focuses on Agriculture, Strategic Innovation, 
+              WASISC 2026 is a premier international science competition
+              bringing together talented students from Junior High to University level.
+              This groundbreaking event focuses on Agriculture, Strategic Innovation,
               and Cooperative Science.
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
@@ -78,28 +78,34 @@ const AboutSection = () => {
           </motion.div>
 
           {/* Features Grid */}
-          { !isMobile && (
+          {!isMobile && (
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="grid grid-cols-2 gap-6"
+              className="grid grid-cols-2 gap-6 lg:gap-8 relative z-10"
             >
               {features.map((feature, index) => (
                 <motion.div
                   key={feature.title}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  className="group p-6 bg-card rounded-2xl border border-border shadow-soft hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 flex justify-center flex-col items-center text-center"
+                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1, type: "spring", stiffness: 100 }}
+                  className="group p-8 lg:p-10 bg-card/80 backdrop-blur-md rounded-3xl border border-border shadow-soft hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 flex flex-col justify-start items-start text-left relative overflow-hidden min-h-[220px]"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                    <feature.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
-                  </div>
-                  <h3 className="font-bold text-foreground text-lg mb-2">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  {/* Giant Watermark Icon */}
+                  <feature.icon
+                    strokeWidth={1}
+                    className="absolute -bottom-8 -right-8 w-40 h-40 lg:-bottom-12 lg:-right-12 lg:w-56 lg:h-56 text-primary/[0.08] group-hover:text-primary/[0.16] transition-all duration-700 ease-out group-hover:scale-110 group-hover:-translate-x-2 group-hover:-translate-y-2 group-hover:-rotate-12 z-0"
+                  />
+
+                  <h3 className="relative font-bold text-foreground text-2xl mb-4 tracking-tight z-10 group-hover:text-primary transition-colors duration-300">
                     {feature.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+
+                  <p className="relative text-muted-foreground text-base leading-relaxed z-10 pr-4">
                     {feature.description}
                   </p>
                 </motion.div>
