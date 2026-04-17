@@ -135,12 +135,12 @@ const Footer = () => {
                   href="#!"
                   className="text-muted-foreground text-sm hover:text-secondary transition-colors"
                 >
-                  info@wasisc2026.org
+                  wasisc.iysa@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-secondary flex-shrink-0" />
-                <span className="text-muted-foreground text-sm">+62 xxx xxxx xxxx</span>
+                <span className="text-muted-foreground text-sm">+62 882 1324 8890</span>
               </li>
             </ul>
           </motion.div>
