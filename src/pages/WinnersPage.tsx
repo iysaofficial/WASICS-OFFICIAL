@@ -80,10 +80,10 @@ const WinnersPage = () => {
                   }
                 }}
                 className={`relative px-8 py-2.5 rounded-full text-base font-bold transition-all duration-300 ${selectedYear === obj.value
-                    ? "text-primary-foreground shadow-lg"
-                    : obj.disabled
-                      ? "text-muted-foreground/30 cursor-not-allowed bg-muted/20"
-                      : "text-muted-foreground hover:text-foreground hover:bg-background/50"
+                  ? "text-primary-foreground shadow-lg"
+                  : obj.disabled
+                    ? "text-muted-foreground/30 cursor-not-allowed bg-muted/20"
+                    : "text-muted-foreground hover:text-foreground hover:bg-background/50"
                   }`}
               >
                 {selectedYear === obj.value && (
