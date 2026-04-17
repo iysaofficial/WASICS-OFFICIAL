@@ -1,15 +1,17 @@
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
     quickLinks: [
-      { name: "Home", href: "#home" },
-      { name: "About", href: "#about" },
-      { name: "Categories", href: "#categories" },
-      { name: "Schedule", href: "#schedule" },
+      { name: "Home", href: "/" },
+      { name: "List of Winners", href: "/winners" },
+      { name: "Curation", href: "#about" },
+      { name: "Certificates", href: "/certificates" },
     ],
     resources: [
       { name: "Guidebook", href: "https://drive.google.com/file/d/1KfXvKOWGs_rpP0M2DRln8EHbO_Rvj84q/view?usp=sharing" },
@@ -70,12 +72,21 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-muted-foreground hover:text-secondary transition-colors duration-200"
-                  >
-                    {link.name}
-                  </a>
+                  {link.href.startsWith("#") ? (
+                    <a
+                      href={link.href}
+                      className="text-muted-foreground hover:text-secondary transition-colors duration-200"
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="text-muted-foreground hover:text-secondary transition-colors duration-200"
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
