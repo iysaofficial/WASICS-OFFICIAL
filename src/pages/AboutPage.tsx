@@ -40,14 +40,14 @@ const AboutPage = () => {
               <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground leading-tight">
                 What is <span className="text-gradient">WASICS?</span>
               </h2>
-              
+
               <div className="bg-card/60 backdrop-blur-2xl border border-white/20 dark:border-white/5 p-8 md:p-10 rounded-[2.5rem] shadow-elevated relative overflow-hidden group">
                 {/* Glowing background blob */}
                 <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/20 rounded-full blur-[4rem] group-hover:bg-primary/30 transition-colors duration-700 pointer-events-none" />
-                
+
                 <div className="relative z-10">
                   <p className="text-foreground text-lg md:text-xl font-medium leading-relaxed mb-6">
-                    WASICS is a premier international science competition bringing together talented students from Junior High to University level.
+                    WASICS is a premier international science competition bringing together talented students from Elementary to University level.
                   </p>
                   <div className="w-16 h-1 rounded-full bg-gradient-to-r from-primary to-transparent mb-6" />
                   <p className="text-muted-foreground text-base leading-relaxed">
@@ -56,16 +56,16 @@ const AboutPage = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="lg:col-span-7 relative h-[400px] lg:h-[600px] order-1 lg:order-2 mb-10 lg:mb-0">
               <div className="absolute inset-0 rounded-[3rem] overflow-hidden shadow-2xl border border-border/50 group">
                 <img src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1770346614/NASPO_I2ASPO_2025-258_tndplw.jpg" alt="WASICS 2026" className="w-full h-full object-cover transition-transform duration-[2s] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-105" />
                 {/* Subtle inner overlay */}
                 <div className="absolute inset-0 bg-gradient-to-tl from-black/20 to-transparent pointer-events-none" />
               </div>
-              
+
               {/* Floating Meta Badge */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.6, type: "spring", bounce: 0.4 }}
