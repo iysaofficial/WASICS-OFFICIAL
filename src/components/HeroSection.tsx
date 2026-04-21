@@ -20,12 +20,12 @@ const HeroSection = () => {
 
   const docs = {
     // Link Drive utama yang berisi Folder "Guidebook & T&C" untuk diakses langsung
-    externalDriveFolderLink: "https://drive.google.com/drive/folders/1Rpn57QJy2b0rAEQeMxbKQPQal4oZs_B-", // TODO: Tempelkan link folder Google Drive Anda di sini
+    externalDriveFolderLink: "https://drive.google.com/drive/folders/1Rpn57QJy2b0rAEQeMxbKQPQal4oZs_B-?usp=sharing", // TODO: Tempelkan link folder Google Drive Anda di sini
     tabs: {
       guidebook: {
         name: "Guidebook",
         icon: <Book className="w-4 h-4 mr-2" />,
-        embedLink: "https://drive.google.com/file/d/1KfXvKOWGs_rpP0M2DRln8EHbO_Rvj84q/preview",
+        embedLink: "https://drive.google.com/file/d/1vhDFjuAQLlDe2OQJNYuGcgWBAeNUBzjL/preview",
       },
       tnc: {
         name: "Terms & Conditions",

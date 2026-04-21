@@ -15,7 +15,7 @@ const Footer = () => {
       { name: "Certificates", href: "/certificates" },
     ],
     resources: [
-      { name: "Guidebook", href: "https://drive.google.com/file/d/1KfXvKOWGs_rpP0M2DRln8EHbO_Rvj84q/view?usp=sharing" },
+      { name: "Guidebook", href: "https://drive.google.com/file/d/1vhDFjuAQLlDe2OQJNYuGcgWBAeNUBzjL/view?usp=sharing" },
       { name: "FAQs", href: "#faq" },
       { name: "Terms & Conditions", href: "https://drive.google.com/file/d/1KOtyI8EZO42INO4Q_IeiTmBQCc_8JtTl/view?usp=sharing" },
     ],
