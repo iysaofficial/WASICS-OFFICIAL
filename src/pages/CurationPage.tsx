@@ -55,14 +55,14 @@ const CurationPage = () => {
             <div className="bg-card/60 backdrop-blur-xl border border-white/10 shadow-soft rounded-[2rem] p-10 h-full">
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-3 text-foreground">
                 <span className="w-1.5 h-8 bg-primary rounded-full"></span>
-                What is Curation?
+                What is Event Curation?
               </h2>
               <div className="text-muted-foreground leading-relaxed text-lg space-y-4 shadow-sm">
                 <p>
-                  <strong>The Curation Gallery</strong> serves as a digital exhibition space showcasing a compilation of the most innovative projects, remarkable achievements, and highlighted works from WASICS participants.
+                  In the context of an event, <strong>Curation</strong> is much more than a simple selection process. It is the art of carefully handpicking, organizing, and presenting the finest works to create an exhibition or competition that is high-quality, cohesive, and impactful.
                 </p>
                 <p>
-                  Through this curated collection, we summarize and celebrate the brilliant innovations that have emerged from this event. You are welcome to explore the archive folders containing comprehensive overviews and profiles of inspiring projects from each edition of the competition.
+                  By curating the event, WASICS ensures that every innovation showcased has undergone profound evaluation by subject-matter experts. This curation process maintains quality, guarantees originality, and ensures that the projects presented are capable of inspiring others and making a tangible contribution to the advancement of science and technology.
                 </p>
               </div>
             </div>
