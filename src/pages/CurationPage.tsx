@@ -1,36 +1,24 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
-import { ChevronDown, Star, ClipboardCheck } from "lucide-react";
+import { ClipboardCheck, ExternalLink, ShieldCheck } from "lucide-react";
 
 const CurationPage = () => {
   const [selectedYear, setSelectedYear] = useState("2026");
-  const [expandedLevel, setExpandedLevel] = useState<string | null>(null);
 
   const availableYears = [
     { label: "2026", value: "2026", disabled: false },
     { label: "2027 (Soon)", value: "2027", disabled: true }
   ];
 
-  const levels = [
-    {
-      name: "Elementary",
-      pdfLink: ""
-    },
-    {
-      name: "Secondary",
-      pdfLink: "" 
-    },
-    {
-      name: "University",
-      pdfLink: ""
-    },
-  ];
-
-  const handleLevelToggle = (levelName: string) => {
-    setExpandedLevel(expandedLevel === levelName ? null : levelName);
+  const getDriveLink = (year: string) => {
+    // Return corresponding drive folder links
+    if (year === "2026") return "";
+    return "";
   };
+
+  const currentDriveLink = getDriveLink(selectedYear);
 
   return (
     <div className="min-h-screen bg-background">
@@ -55,122 +43,97 @@ const CurationPage = () => {
           </p>
         </motion.div>
 
-        {/* 1. Year Selector (Horizontal Pills) */}
-        <div className="mb-12 flex justify-center">
+        {/* Layout for Description and Drive Access */}
+        <div className="flex flex-col lg:flex-row gap-10 max-w-6xl mx-auto">
+          {/* LEFT COLUMN: WHAT IS CURATION */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="inline-flex p-1.5 bg-secondary/50 backdrop-blur-md rounded-full border border-border/50 gap-1 overflow-x-auto max-w-full"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex-1"
           >
-            {availableYears.map((obj) => (
-              <button
-                key={obj.value}
-                disabled={obj.disabled}
-                onClick={() => {
-                  if (!obj.disabled) {
-                    setSelectedYear(obj.value);
-                    setExpandedLevel(null); 
-                  }
-                }}
-                className={`relative px-8 py-2.5 rounded-full text-base font-bold transition-all duration-300 ${selectedYear === obj.value
-                  ? "text-primary-foreground shadow-lg"
-                  : obj.disabled
-                    ? "text-muted-foreground/30 cursor-not-allowed bg-muted/20"
-                    : "text-muted-foreground hover:text-foreground hover:bg-background/50"
-                  }`}
-              >
-                {selectedYear === obj.value && (
-                  <motion.div
-                    layoutId="yearBackgroundCurationWasics"
-                    className="absolute inset-0 bg-gradient-to-r from-primary to-[#2a7a5f] rounded-full z-0"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
-                <span className="relative z-10">{obj.label}</span>
-              </button>
-            ))}
+            <div className="bg-card/60 backdrop-blur-xl border border-white/10 shadow-soft rounded-[2rem] p-10 h-full">
+              <h2 className="text-2xl font-bold mb-6 flex items-center gap-3 text-foreground">
+                <span className="w-1.5 h-8 bg-primary rounded-full"></span>
+                What is Curation?
+              </h2>
+              <div className="text-muted-foreground leading-relaxed text-lg space-y-4 shadow-sm">
+                <p>
+                  <strong>Curation</strong> is the preliminary screening and evaluation process of the innovative projects submitted by WASICS participants. During this stage, expert reviewers analyze the abstracts and foundational documents to determine the project's eligibility.
+                </p>
+                <p>
+                  Projects that pass the curation phase have met the rigorous global competition standards and are officially qualified to present and compete in the final round. The official declaration of curated projects will be accessible through the corresponding Google Drive folder.
+                </p>
+              </div>
+            </div>
           </motion.div>
-        </div>
 
-        {/* 2. Level Accordion & Podium (No Mode Selector) */}
-        <div className="max-w-4xl mx-auto space-y-6">
-          <AnimatePresence mode="popLayout">
-            {levels.map((level, index) => {
-              const isExpanded = expandedLevel === level.name;
+          {/* RIGHT COLUMN: DRIVE VAULT PER YEAR */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex-1"
+          >
+            <div className="bg-gradient-to-br from-card/80 to-card/60 backdrop-blur-2xl border border-primary/20 shadow-[0_8px_32px_rgba(16,185,129,0.06)] rounded-[2rem] p-10 h-full">
+              <div className="mb-8">
+                <h2 className="text-3xl font-extrabold text-foreground mb-2">Access Results</h2>
+                <p className="text-muted-foreground font-medium">Find the official curation folder layout here.</p>
+              </div>
 
-              return (
-                <motion.div
-                  key={level.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                  className={`bg-card/60 backdrop-blur-xl border ${isExpanded ? 'border-primary/40 shadow-[0_4px_30px_rgba(16,185,129,0.15)]' : 'border-white/10 dark:border-white/5 shadow-soft'} rounded-[2rem] overflow-hidden hover:shadow-elevated transition-all duration-500`}
-                >
+              {/* Year Pills */}
+              <div className="flex flex-wrap gap-2 p-1.5 bg-secondary/50 rounded-2xl border border-border/50 mb-8">
+                {availableYears.map(y => (
                   <button
-                    onClick={() => handleLevelToggle(level.name)}
-                    className="w-full text-left px-6 md:px-10 py-6 md:py-8 flex items-center justify-between focus:outline-none group"
+                    key={y.value}
+                    disabled={y.disabled}
+                    onClick={() => setSelectedYear(y.value)}
+                    className={`flex-1 py-3 px-4 rounded-xl text-sm font-bold transition-all duration-300 ${
+                      selectedYear === y.value
+                        ? "bg-background text-foreground shadow-sm"
+                        : y.disabled
+                        ? "text-muted-foreground/40 cursor-not-allowed"
+                        : "text-muted-foreground hover:bg-background/50 hover:text-foreground"
+                    }`}
                   >
-                    <div className="flex items-center gap-5 md:gap-6">
-                      <div className={`w-14 h-14 md:w-16 md:h-16 rounded-[1.2rem] flex items-center justify-center transition-all duration-500 ${isExpanded ? 'bg-primary text-primary-foreground scale-110 shadow-lg shadow-primary/30' : 'bg-primary/10 text-primary group-hover:scale-110 group-hover:bg-primary/20'}`}>
-                        <Star className="w-7 h-7 md:w-8 md:h-8" />
-                      </div>
-                      <div>
-                        <h3 className="text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors">
-                          {level.name}
-                        </h3>
-                        <p className="text-muted-foreground text-sm font-medium mt-1">Click to view curation results</p>
-                      </div>
-                    </div>
-                    <div className={`p-3 rounded-full border bg-background transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isExpanded ? "rotate-180 bg-primary/10 border-primary/30" : "border-border"}`}>
-                      <ChevronDown className={`w-7 h-7 ${isExpanded ? "text-primary" : "text-muted-foreground"}`} />
-                    </div>
+                    {y.label}
                   </button>
+                ))}
+              </div>
 
-                  <AnimatePresence>
-                    {isExpanded && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
-                        className="overflow-hidden"
-                      >
-                        <div className="px-6 md:px-10 pb-10 pt-2">
-                          <div className="h-px w-full bg-border/60 mb-8" />
+              {/* Single Vault Button Container */}
+              <div className="group flex flex-col gap-6 p-8 rounded-3xl border border-primary/20 bg-primary/5 transition-all duration-500">
+                <div className="flex items-center gap-5 w-full">
+                  <div className="w-16 h-16 shrink-0 rounded-[1.2rem] bg-primary/10 flex items-center justify-center text-primary transition-all duration-500">
+                    <ShieldCheck size={32} />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-extrabold text-foreground mb-1">
+                      {selectedYear} Curation Folder
+                    </h4>
+                    <p className="text-muted-foreground text-sm font-medium leading-snug">
+                      Data center containing the official letters of qualification for curated participants.
+                    </p>
+                  </div>
+                </div>
 
-                          {/* Render Embedded PDF or Fallback */}
-                          {level.pdfLink ? (
-                            <div className="bg-background rounded-3xl overflow-hidden border border-border shadow-inner relative w-full h-[500px] md:h-[700px]">
-                              <iframe
-                                src={level.pdfLink}
-                                width="100%"
-                                height="100%"
-                                allow="autoplay"
-                                className="border-0 bg-white"
-                                title={`Curation ${level.name}`}
-                              ></iframe>
-                            </div>
-                          ) : (
-                            <div className="bg-background/80 rounded-3xl p-10 md:p-16 border-2 border-dashed border-border/80 flex flex-col items-center justify-center text-center">
-                              <ClipboardCheck className="w-16 h-16 text-muted-foreground/30 mb-6 drop-shadow-md" />
-                              <p className="text-foreground font-bold text-xl md:text-2xl mb-2">
-                                Awaiting official announcements
-                              </p>
-                              <p className="text-base md:text-lg text-muted-foreground/80 max-w-lg">
-                                Curation results for <strong className="text-primary">{selectedYear} - {level.name}</strong> will be updated here soon.
-                              </p>
-                            </div>
-                          )}
+                <div className="w-full mt-2">
+                  {currentDriveLink ? (
+                    <a href={currentDriveLink} target="_blank" rel="noopener noreferrer" className="block outline-none">
+                      <button className="w-full py-4 px-6 rounded-2xl bg-secondary hover:bg-secondary/90 text-white font-bold text-lg border-none cursor-pointer flex items-center justify-center gap-3 shadow-lg transition-transform hover:scale-[1.02]">
+                        Open Drive Folder <ExternalLink size={20} />
+                      </button>
+                    </a>
+                  ) : (
+                    <button className="w-full py-4 px-6 rounded-2xl bg-muted text-muted-foreground font-bold text-lg border-none cursor-not-allowed">
+                      Folder Not Available Yet
+                    </button>
+                  )}
+                </div>
+              </div>
 
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              );
-            })}
-          </AnimatePresence>
+            </div>
+          </motion.div>
         </div>
       </main>
       <Footer />
