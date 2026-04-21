@@ -8,7 +8,7 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "List of Winners", href: "/winners" },
-  { name: "Curation", href: "#about" },
+  { name: "Curation", href: "/curation" },
   { name: "Certificates", href: "/certificates" },
   // { name: "Schedule", href: "#schedule" },
   // { name: "Contact", href: "#contact" },
