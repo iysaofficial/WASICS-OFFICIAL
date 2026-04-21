@@ -33,13 +33,13 @@ const CurationPage = () => {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-bold text-sm mb-6">
             <ClipboardCheck className="w-4 h-4" />
-            <span>Selection & Evaluation</span>
+            <span>Event Documentation & Gallery</span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
-            Curation <span className="text-gradient">Results</span>
+            Curation <span className="text-gradient">Gallery</span>
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Discover the extraordinary projects that have passed our rigorous selection process and advanced to the final stage of the WASICS global science competition.
+            Explore a curated exhibition of extraordinary projects and the best innovations born from the WASICS global science competition.
           </p>
         </motion.div>
 
@@ -59,10 +59,10 @@ const CurationPage = () => {
               </h2>
               <div className="text-muted-foreground leading-relaxed text-lg space-y-4 shadow-sm">
                 <p>
-                  <strong>Curation</strong> is the preliminary screening and evaluation process of the innovative projects submitted by WASICS participants. During this stage, expert reviewers analyze the abstracts and foundational documents to determine the project's eligibility.
+                  <strong>The Curation Gallery</strong> serves as a digital exhibition space showcasing a compilation of the most innovative projects, remarkable achievements, and highlighted works from WASICS participants.
                 </p>
                 <p>
-                  Projects that pass the curation phase have met the rigorous global competition standards and are officially qualified to present and compete in the final round. The official declaration of curated projects will be accessible through the corresponding Google Drive folder.
+                  Through this curated collection, we summarize and celebrate the brilliant innovations that have emerged from this event. You are welcome to explore the archive folders containing comprehensive overviews and profiles of inspiring projects from each edition of the competition.
                 </p>
               </div>
             </div>
@@ -77,8 +77,8 @@ const CurationPage = () => {
           >
             <div className="bg-gradient-to-br from-card/80 to-card/60 backdrop-blur-2xl border border-primary/20 shadow-[0_8px_32px_rgba(16,185,129,0.06)] rounded-[2rem] p-10 h-full">
               <div className="mb-8">
-                <h2 className="text-3xl font-extrabold text-foreground mb-2">Access Results</h2>
-                <p className="text-muted-foreground font-medium">Find the official curation folder layout here.</p>
+                <h2 className="text-3xl font-extrabold text-foreground mb-2">Access Archives</h2>
+                <p className="text-muted-foreground font-medium">Find the curated event archives and documents here.</p>
               </div>
 
               {/* Year Pills */}
@@ -109,10 +109,10 @@ const CurationPage = () => {
                   </div>
                   <div>
                     <h4 className="text-xl font-extrabold text-foreground mb-1">
-                      {selectedYear} Curation Folder
+                      {selectedYear} Curated Gallery
                     </h4>
                     <p className="text-muted-foreground text-sm font-medium leading-snug">
-                      Data center containing the official letters of qualification for curated participants.
+                      A comprehensive collection of documents, posters, and records of the phenomenal works by our participants.
                     </p>
                   </div>
                 </div>
