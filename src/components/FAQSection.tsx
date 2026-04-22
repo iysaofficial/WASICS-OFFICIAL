@@ -11,11 +11,11 @@ const faqs = [
   },
   {
     question: "Who can participate?",
-    answer: "University students from all over the world.",
+    answer: "Elementary School, Junior High School, High School, and University students from all over the world.",
   },
   {
     question: "What are the categories?",
-    answer: "There are several categories including IT, Social Science, Natural Science, and Engineering.",
+    answer: "There are several categories including Plant & Crop Science, Food Security & Sustainable Agriculture, AI & IoT in Agriculture, Education & Social Impact Studies, and Digital & Sustainable Innovation.",
   },
   {
     question: "How do I register?",

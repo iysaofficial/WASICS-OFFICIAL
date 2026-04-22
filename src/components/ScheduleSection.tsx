@@ -43,7 +43,7 @@ const scheduleItems = [
   {
     date: "October 25th, 2026",
     day: "Day 3",
-    title: "Free Time",
+    title: "Free Time (Tentative)",
     type: "Offline",
     icon: Calendar,
     description: "Free time for offline participants to relax and explore.",

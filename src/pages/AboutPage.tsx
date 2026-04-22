@@ -47,7 +47,7 @@ const AboutPage = () => {
                 
                 <div className="relative z-10">
                   <p className="text-foreground text-lg md:text-xl font-medium leading-relaxed mb-6">
-                    WASICS is a premier international science competition bringing together talented students from Junior High to University level.
+                    WASICS is a premier international science competition bringing together talented students from Elementary School to University level.
                   </p>
                   <div className="w-16 h-1 rounded-full bg-gradient-to-r from-primary to-transparent mb-6" />
                   <p className="text-muted-foreground text-base leading-relaxed">
