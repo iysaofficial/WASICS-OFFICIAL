@@ -6,8 +6,9 @@ import { Link } from "react-router-dom";
 
 const navLinks = [
   { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
   { name: "List of Winners", href: "/winners" },
-  { name: "Curation", href: "#about" },
+  { name: "Curation", href: "/curation" },
   { name: "Certificates", href: "/certificates" },
   // { name: "Schedule", href: "#schedule" },
   // { name: "Contact", href: "#contact" },
@@ -30,16 +31,15 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass shadow-soft" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "glass shadow-soft" : "bg-transparent"
+        }`}
     >
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2">
             <div className="w-32 items-center justify-center">
-              <img src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1770278029/LOGO_WASICS_Revisi_mhkrln.png" alt="logo wasisc 2026" />
+              <img src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1776746440/LOGO_WASICS_rjizeo.png" alt="logo wasisc 2026" />
             </div>
           </a>
 

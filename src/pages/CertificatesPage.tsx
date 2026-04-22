@@ -112,7 +112,7 @@ const CertificatesPage = () => {
 
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
                 <div>
-                  <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mb-2">Supervisor Vault</h2>
+                  <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mb-2">Supervisor Certificate</h2>
                   <p className="text-muted-foreground font-medium">Access your e-Certificates via Google Drive</p>
                 </div>
 
@@ -169,7 +169,7 @@ const CertificatesPage = () => {
                     {currentDriveLink ? (
                       <Button asChild className="w-full sm:w-auto rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all font-bold" size="lg">
                         <a href={currentDriveLink} target="_blank" rel="noopener noreferrer">
-                          Access Drive Vault <ExternalLink className="w-5 h-5 ml-2" />
+                          Access Drive <ExternalLink className="w-5 h-5 ml-2" />
                         </a>
                       </Button>
                     ) : (

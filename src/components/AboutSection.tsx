@@ -53,7 +53,11 @@ const AboutSection = () => {
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
               WASISC 2026 is a premier international science competition
+<<<<<<< HEAD
               bringing together talented students from Elementary School to University level.
+=======
+              bringing together talented students from Elementary to University level.
+>>>>>>> 931749c621294bb6f6c6f1ce86cee4c50f7e5a29
               This groundbreaking event focuses on Agriculture, Strategic Innovation,
               and Cooperative Science.
             </p>

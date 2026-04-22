@@ -9,21 +9,21 @@ const Footer = () => {
   const footerLinks = {
     quickLinks: [
       { name: "Home", href: "/" },
+      { name: "About", href: "/about" },
       { name: "List of Winners", href: "/winners" },
-      { name: "Curation", href: "#about" },
+      { name: "Curation", href: "/curation" },
       { name: "Certificates", href: "/certificates" },
     ],
     resources: [
-      { name: "Guidebook", href: "https://drive.google.com/file/d/1KfXvKOWGs_rpP0M2DRln8EHbO_Rvj84q/view?usp=sharing" },
-      { name: "FAQs", href: "#" },
+      { name: "Guidebook", href: "https://drive.google.com/file/d/1vhDFjuAQLlDe2OQJNYuGcgWBAeNUBzjL/view?usp=sharing" },
+      { name: "FAQs", href: "#faq" },
       { name: "Terms & Conditions", href: "https://drive.google.com/file/d/1KOtyI8EZO42INO4Q_IeiTmBQCc_8JtTl/view?usp=sharing" },
-      { name: "Privacy Policy", href: "#" },
     ],
   };
 
   const socialLinks = [
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Youtube, href: "#", label: "YouTube" },
+    { icon: Instagram, href: "https://www.instagram.com/iysa_official/", label: "Instagram" },
+    { icon: Youtube, href: "https://www.youtube.com/@IYSAOfficial", label: "YouTube" },
   ];
 
   return (
@@ -40,7 +40,7 @@ const Footer = () => {
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="w-64 md:w-full items-center justify-center pr-8">
-                <img src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1772783154/LOGO_WASICS_putih_ytqa3f.png" alt="logo wasisc 2026  " />
+                <img src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1776746440/LOGO_WASICS_rjizeo.png" alt="logo wasisc 2026  " />
               </div>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
@@ -52,6 +52,8 @@ const Footer = () => {
                 <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
                   className="w-10 h-10 rounded-lg bg-muted/10 hover:bg-primary flex items-center justify-center transition-colors duration-200"
                 >
@@ -105,6 +107,8 @@ const Footer = () => {
                 <li key={link.name}>
                   <a
                     href={link.href}
+                    target={link.href.startsWith("http") ? "_blank" : undefined}
+                    rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                     className="text-muted-foreground hover:text-secondary transition-colors duration-200"
                   >
                     {link.name}
@@ -125,14 +129,19 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
-                <span className="text-muted-foreground text-sm">
+                <a
+                  href="https://maps.google.com/?q=SMA+Taruna+Nusantara+Kampus+Malang"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground text-sm hover:text-secondary transition-colors"
+                >
                   SMA Taruna Nusantara Kampus Malang, Malang, East Java, Indonesia
-                </span>
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-secondary flex-shrink-0" />
                 <a
-                  href="#!"
+                  href="mailto:wasisc.iysa@gmail.com"
                   className="text-muted-foreground text-sm hover:text-secondary transition-colors"
                 >
                   wasisc.iysa@gmail.com
@@ -140,7 +149,14 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-secondary flex-shrink-0" />
-                <span className="text-muted-foreground text-sm">+62 882 1324 8890</span>
+                <a
+                  href="https://wa.me/6288213248890"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground text-sm hover:text-secondary transition-colors"
+                >
+                  +62 882 1324 8890
+                </a>
               </li>
             </ul>
           </motion.div>
