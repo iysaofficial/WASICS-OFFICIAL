@@ -108,7 +108,7 @@ const WinnersPage = () => {
             className="flex p-2 bg-card border border-border shadow-soft rounded-[2.5rem] w-full max-w-[28rem] relative"
           >
             <div
-              className={`absolute top-2 bottom-2 left-2 w-[calc(50%-0.6rem)] bg-primary/10 rounded-[2rem] border border-primary/20 transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${selectedCategory === "Online" ? "translate-x-full" : "translate-x-0"
+              className={`absolute top-2 bottom-2 left-2 w-[calc(50%-0.6rem)] bg-primary/10 rounded-[2rem] border border-primary/20 transition-transform duration-500 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)] ${selectedCategory === "Online" ? "translate-x-full" : "translate-x-0"
                 }`}
             />
             {["Offline", "Online"].map((cat) => (
@@ -156,7 +156,7 @@ const WinnersPage = () => {
                         <p className="text-muted-foreground text-sm font-medium mt-1">Click to view medalists</p>
                       </div>
                     </div>
-                    <div className={`p-3 rounded-full border bg-background transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isExpanded ? "rotate-180 bg-primary/10 border-primary/30" : "border-border"}`}>
+                    <div className={`p-3 rounded-full border bg-background transition-all duration-500 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)] ${isExpanded ? "rotate-180 bg-primary/10 border-primary/30" : "border-border"}`}>
                       <ChevronDown className={`w-7 h-7 ${isExpanded ? "text-primary" : "text-muted-foreground"}`} />
                     </div>
                   </button>

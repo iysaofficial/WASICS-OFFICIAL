@@ -127,7 +127,7 @@ const ScheduleSection = () => {
                     {/* Left Attached Watermark Icon */}
                     <div className="absolute top-1/2 -translate-y-1/2 left-0 pointer-events-none z-0">
                       <item.icon
-                        className={`w-28 h-28 md:w-32 md:h-32 -translate-x-1/4 opacity-[0.08] transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-2 group-hover:scale-110 group-hover:rotate-12 group-hover:opacity-[0.15] ${item.highlight ? "text-primary" : "text-foreground"
+                        className={`w-28 h-28 md:w-32 md:h-32 -translate-x-1/4 opacity-[0.08] transition-all duration-500 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-2 group-hover:scale-110 group-hover:rotate-12 group-hover:opacity-[0.15] ${item.highlight ? "text-primary" : "text-foreground"
                           }`}
                       />
                     </div>

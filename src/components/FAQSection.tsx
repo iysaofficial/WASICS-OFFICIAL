@@ -11,11 +11,7 @@ const faqs = [
   },
   {
     question: "Who can participate?",
-<<<<<<< HEAD
-    answer: "Elementary School, Junior High School, High School, and University students from all over the world.",
-=======
     answer: "Elementary, Junior High, Senior High School, and University students from all over the world.",
->>>>>>> 931749c621294bb6f6c6f1ce86cee4c50f7e5a29
   },
   {
     question: "What are the categories?",

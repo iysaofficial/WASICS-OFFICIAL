@@ -47,11 +47,7 @@ const AboutPage = () => {
 
                 <div className="relative z-10">
                   <p className="text-foreground text-lg md:text-xl font-medium leading-relaxed mb-6">
-<<<<<<< HEAD
-                    WASICS is a premier international science competition bringing together talented students from Elementary School to University level.
-=======
                     WASICS is a premier international science competition bringing together talented students from Elementary to University level.
->>>>>>> 931749c621294bb6f6c6f1ce86cee4c50f7e5a29
                   </p>
                   <div className="w-16 h-1 rounded-full bg-gradient-to-r from-primary to-transparent mb-6" />
                   <p className="text-muted-foreground text-base leading-relaxed">
@@ -63,7 +59,7 @@ const AboutPage = () => {
 
             <div className="lg:col-span-7 relative h-[400px] lg:h-[600px] order-1 lg:order-2 mb-10 lg:mb-0">
               <div className="absolute inset-0 rounded-[3rem] overflow-hidden shadow-2xl border border-border/50 group">
-                <img src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1770346614/NASPO_I2ASPO_2025-258_tndplw.jpg" alt="WASICS 2026" className="w-full h-full object-cover transition-transform duration-[2s] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-105" />
+                <img src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1770346614/NASPO_I2ASPO_2025-258_tndplw.jpg" alt="WASICS 2026" className="w-full h-full object-cover transition-transform [transition-duration:2s] [transition-timing-function:cubic-bezier(0.25,1,0.5,1)] group-hover:scale-105" />
                 {/* Subtle inner overlay */}
                 <div className="absolute inset-0 bg-gradient-to-tl from-black/20 to-transparent pointer-events-none" />
               </div>
@@ -99,7 +95,7 @@ const AboutPage = () => {
             <motion.div
               className="group relative rounded-[2.5rem] overflow-hidden min-h-[400px] md:min-h-[500px] shadow-xl"
             >
-              <img src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1770347332/tarnus_gyiif_qmhkpj.jpg" alt="IYSA" className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110" />
+              <img src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1770347332/tarnus_gyiif_qmhkpj.jpg" alt="IYSA" className="absolute inset-0 w-full h-full object-cover transition-transform [transition-duration:1.5s] [transition-timing-function:cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-80 md:opacity-90 group-hover:opacity-100 transition-opacity duration-700" />
 
               <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-end">
@@ -111,7 +107,7 @@ const AboutPage = () => {
                   Indonesian Young Scientist Association (IYSA)
                 </h3>
 
-                <div className="grid grid-rows-[1fr] md:grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]">
+                <div className="grid grid-rows-[1fr] md:grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-700 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)]">
                   <div className="overflow-hidden min-h-0">
                     <p className="text-white/80 text-sm md:text-lg leading-relaxed mt-2 md:mt-3 transform transition-all duration-700 md:translate-y-6 md:opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
                       The Indonesian Young Scientist Association (IYSA) is an institution engaged in the development of the potential, talents, and creativity of Indonesian students in non-academic fields.
@@ -125,7 +121,7 @@ const AboutPage = () => {
             <motion.div
               className="group relative rounded-[2.5rem] overflow-hidden min-h-[400px] md:min-h-[500px] shadow-xl"
             >
-              <img src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1770347927/tarnus_zpaccv.png" alt="SMA Taruna Nusantara Kampus Malang" className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110" />
+              <img src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1770347927/tarnus_zpaccv.png" alt="SMA Taruna Nusantara Kampus Malang" className="absolute inset-0 w-full h-full object-cover transition-transform [transition-duration:1.5s] [transition-timing-function:cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-80 md:opacity-90 group-hover:opacity-100 transition-opacity duration-700" />
 
               <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-end">
@@ -137,7 +133,7 @@ const AboutPage = () => {
                   SMA Taruna Nusantara Kampus Malang
                 </h3>
 
-                <div className="grid grid-rows-[1fr] md:grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]">
+                <div className="grid grid-rows-[1fr] md:grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-700 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)]">
                   <div className="overflow-hidden min-h-0">
                     <p className="text-white/80 text-sm md:text-lg leading-relaxed mt-2 md:mt-3 transform transition-all duration-700 md:translate-y-6 md:opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
                       SMA Taruna Nusantara Kampus Malang is a boarding high school in Malang, East Java, Indonesia. Established in 1990, it has a reputation for producing future leaders.

@@ -67,7 +67,7 @@ function HomeInter() {
               <a
                 href="#!"
                 role="button"
-                className="group flex items-center justify-center p-6 bg-gradient-to-r from-primary to-[#2a7a5f] text-primary-foreground font-bold rounded-2xl text-lg transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:-translate-y-1 active:scale-95 shadow-[0_8px_20px_rgba(16,185,129,0.3)] hover:shadow-[0_12px_30px_rgba(16,185,129,0.5)] border border-primary/20"
+                className="group flex items-center justify-center p-6 bg-gradient-to-r from-primary to-[#2a7a5f] text-primary-foreground font-bold rounded-2xl text-lg transition-all duration-500 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)] hover:-translate-y-1 active:scale-95 shadow-[0_8px_20px_rgba(16,185,129,0.3)] hover:shadow-[0_12px_30px_rgba(16,185,129,0.5)] border border-primary/20"
                 onClick={(e) => {
                   e.preventDefault();
                   handleOpenModal("/inter-offline", "internationalOffline");
