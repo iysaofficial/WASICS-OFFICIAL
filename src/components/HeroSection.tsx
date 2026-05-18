@@ -25,7 +25,7 @@ const HeroSection = () => {
       guidebook: {
         name: "Guidebook",
         icon: <Book className="w-4 h-4 mr-2" />,
-        embedLink: "https://drive.google.com/file/d/1vhDFjuAQLlDe2OQJNYuGcgWBAeNUBzjL/preview",
+        embedLink: "https://drive.google.com/file/d/1gCQj5jk27KD4WS_mqdloJwgI2mSyrdXM/preview",
       },
       tnc: {
         name: "Terms & Conditions",
