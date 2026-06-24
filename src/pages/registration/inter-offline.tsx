@@ -1,4 +1,5 @@
 import { useState, useEffect, ChangeEvent, FormEvent } from "react";
+import { phoneCodes } from "../../data/phoneCodes";
 import { useNavigate } from "react-router-dom";
 
 function InternationalOffline() {
@@ -15,8 +16,7 @@ function InternationalOffline() {
   const [showModal, setShowModal] = useState(false);
   const [countdown, setCountdown] = useState(5);
   const [canClick, setCanClick] = useState(false);
-  const [phoneCodes, setPhoneCodes] = useState<{ name: string; code: string }[]>([]);
-  const [phoneCodesLoading, setPhoneCodesLoading] = useState(true);
+
   const navigate = useNavigate();
 
   const handleInputNameChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -57,34 +57,7 @@ function InternationalOffline() {
     }
   };
 
-  useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all?fields=name,idd")
-      .then((response) => response.json())
-      .then((data) => {
-        if (Array.isArray(data)) {
-          const codes = data
-            .filter(
-              (country: any) =>
-                country.idd && country.idd.root && country.idd.suffixes
-            )
-            .map((country: any) => ({
-              name: country.name.common,
-              code:
-                country.idd.root +
-                (country.idd.suffixes ? country.idd.suffixes[0] : ""),
-            }))
-            .sort((a, b) => a.name.localeCompare(b.name));
-          setPhoneCodes(codes);
-        } else {
-          console.error("API response is not an array:", data);
-        }
-        setPhoneCodesLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching phone codes:", error);
-        setPhoneCodesLoading(false);
-      });
-  }, []);
+
 
   useEffect(() => {
     const termsAccepted = sessionStorage.getItem("termsAccepted");
@@ -397,15 +370,11 @@ function InternationalOffline() {
                     required
                   >
                     <option value="">--Choose Phone Code--</option>
-                    {phoneCodesLoading ? (
-                      <option value="" disabled>Loading...</option>
-                    ) : (
-                      phoneCodes.map((country) => (
-                        <option key={country.name} value={`${country.name} ${country.code}`}>
-                          {country.name} {country.code}
-                        </option>
-                      ))
-                    )}
+                    {phoneCodes.map((country) => (
+                      <option key={`${country.name}-${country.code}`} value={`${country.name} (${country.code})`}>
+                        {country.name} ({country.code})
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div className="mb-6">
@@ -512,15 +481,11 @@ function InternationalOffline() {
                     required
                   >
                     <option value="">--Choose Country--</option>
-                    {phoneCodesLoading ? (
-                      <option value="" disabled>Loading...</option>
-                    ) : (
-                      phoneCodes.map((country) => (
-                        <option key={country.name} value={country.name}>
-                          {country.name}
-                        </option>
-                      ))
-                    )}
+                    {phoneCodes.map((country) => (
+                      <option key={`country-${country.name}`} value={country.name}>
+                        {country.name}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>
