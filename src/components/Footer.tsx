@@ -40,7 +40,7 @@ const Footer = () => {
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="w-64 md:w-full items-center justify-center pr-8">
-                <img src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1776746440/LOGO_WASICS_rjizeo.png" alt="logo wasisc 2026  " />
+                <img src="https://ik.imagekit.io/iysaimg/ASSET%20IYSA/LOGO_WASICS_rjizeo.png?updatedAt=1781964253466" alt="logo wasisc 2026  " />
               </div>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">

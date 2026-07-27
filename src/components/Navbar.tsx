@@ -39,7 +39,7 @@ const Navbar = () => {
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2">
             <div className="w-32 items-center justify-center">
-              <img src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1776746440/LOGO_WASICS_rjizeo.png" alt="logo wasisc 2026" />
+              <img src="https://ik.imagekit.io/iysaimg/ASSET%20IYSA/LOGO_WASICS_rjizeo.png?updatedAt=1781963576707" alt="logo wasisc 2026" />
             </div>
           </a>
 
