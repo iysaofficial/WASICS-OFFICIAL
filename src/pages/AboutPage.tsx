@@ -59,7 +59,7 @@ const AboutPage = () => {
 
             <div className="lg:col-span-7 relative h-[400px] lg:h-[600px] order-1 lg:order-2 mb-10 lg:mb-0">
               <div className="absolute inset-0 rounded-[3rem] overflow-hidden shadow-2xl border border-border/50 group">
-                <img src="https://ik.imagekit.io/iysaimg/ASSET%20IYSA/NASPO_I2ASPO_2025-258_tndplw.jpg?updatedAt=1781963618123" alt="WASICS 2026" className="w-full h-full object-cover transition-transform [transition-duration:2s] [transition-timing-function:cubic-bezier(0.25,1,0.5,1)] group-hover:scale-105" />
+                <img src="/img/NASPO_I2ASPO_2025-258_tndplw.jpg" alt="WASICS 2026" className="w-full h-full object-cover transition-transform [transition-duration:2s] [transition-timing-function:cubic-bezier(0.25,1,0.5,1)] group-hover:scale-105" />
                 {/* Subtle inner overlay */}
                 <div className="absolute inset-0 bg-gradient-to-tl from-black/20 to-transparent pointer-events-none" />
               </div>
@@ -95,12 +95,12 @@ const AboutPage = () => {
             <motion.div
               className="group relative rounded-[2.5rem] overflow-hidden min-h-[400px] md:min-h-[500px] shadow-xl"
             >
-              <img src="https://ik.imagekit.io/iysaimg/ASSET%20IYSA/tarnus_gyiif_qmhkpj.jpg?updatedAt=1781963610587" alt="IYSA" className="absolute inset-0 w-full h-full object-cover transition-transform [transition-duration:1.5s] [transition-timing-function:cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110" />
+              <img src="/img/tarnus_gyiif_qmhkpj.jpg" alt="IYSA" className="absolute inset-0 w-full h-full object-cover transition-transform [transition-duration:1.5s] [transition-timing-function:cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-80 md:opacity-90 group-hover:opacity-100 transition-opacity duration-700" />
 
               <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-end">
                 <div className="w-16 h-16 md:w-20 md:h-20 bg-white/10 backdrop-blur-md rounded-2xl p-2.5 md:p-3 mb-4 md:mb-5 border border-white/20 shadow-2xl transition-transform duration-700 ease-out group-hover:-translate-y-2">
-                  <img src="https://ik.imagekit.io/iysaimg/ASSET%20IYSA/Desain_tanpa_judul_4_bperwk.png?updatedAt=1781963587849" alt="IYSA Logo" className="w-full h-full object-contain drop-shadow-lg" />
+                  <img src="/img/Desain_tanpa_judul_4_bperwk.png" alt="IYSA Logo" className="w-full h-full object-contain drop-shadow-lg" />
                 </div>
 
                 <h3 className="text-2xl md:text-4xl font-bold text-white mb-1.5 md:mb-2 leading-tight drop-shadow-md">
@@ -121,12 +121,12 @@ const AboutPage = () => {
             <motion.div
               className="group relative rounded-[2.5rem] overflow-hidden min-h-[400px] md:min-h-[500px] shadow-xl"
             >
-              <img src="https://ik.imagekit.io/iysaimg/ASSET%20IYSA/tarnus_zpaccv.png?updatedAt=1781963610587" alt="SMA Taruna Nusantara Kampus Malang" className="absolute inset-0 w-full h-full object-cover transition-transform [transition-duration:1.5s] [transition-timing-function:cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110" />
+              <img src="/img/tarnus_zpaccv.png" alt="SMA Taruna Nusantara Kampus Malang" className="absolute inset-0 w-full h-full object-cover transition-transform [transition-duration:1.5s] [transition-timing-function:cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-80 md:opacity-90 group-hover:opacity-100 transition-opacity duration-700" />
 
               <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-end">
                 <div className="w-16 h-16 md:w-20 md:h-20 bg-white/10 backdrop-blur-md rounded-2xl p-2.5 md:p-3 mb-4 md:mb-5 border border-white/20 shadow-2xl transition-transform duration-700 ease-out group-hover:-translate-y-2">
-                  <img src="https://ik.imagekit.io/iysaimg/ASSET%20IYSA/Desain_tanpa_judul_3_lbanwu.png?updatedAt=1781963589125" alt="SMA Taruna Nusantara Kampus Malang Logo" className="w-full h-full object-contain drop-shadow-lg" />
+                  <img src="/img/Desain_tanpa_judul_3_lbanwu.png" alt="SMA Taruna Nusantara Kampus Malang Logo" className="w-full h-full object-contain drop-shadow-lg" />
                 </div>
 
                 <h3 className="text-2xl md:text-4xl font-bold text-white mb-1.5 md:mb-2 leading-tight drop-shadow-md">

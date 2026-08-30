@@ -46,13 +46,13 @@ function InternationalOnline() {
 
     switch (value) {
       case "World Agriculture, Strategic Studies & Innovation Science Competition - Online Competition":
-        setCategoryPrice("105 USD");
+        setCategoryPrice("$85 USD");
         break;
       case "World Agriculture, Strategic Studies & Innovation Science Competition - Online Competition + Certificate and Medal (SOUTH EAST ASIA)":
-        setCategoryPrice("225 USD");
+        setCategoryPrice("$225 USD");
         break;
       case "World Agriculture, Strategic Studies & Innovation Science Competition - Online Competition + Certificate and Medal (Exclude SOUTH EAST ASIA)":
-        setCategoryPrice("275 USD");
+        setCategoryPrice("$275 USD");
         break;
       default:
         setCategoryPrice("");

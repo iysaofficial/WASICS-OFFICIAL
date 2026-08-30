@@ -10,12 +10,12 @@ const OrganizedBySection = () => {
     {
       name: "Indonesian Young Scientist Association",
       // role: "Main Organizer",
-      logo: "https://ik.imagekit.io/iysaimg/ASSET%20IYSA/Desain_tanpa_judul_4_bperwk.png?updatedAt=1781963587849",
+      logo: "/img/Desain_tanpa_judul_4_bperwk.png",
     },
     {
       name: "SMA Taruna Nusantara Kampus Malang",
       // role: "Co-Organizer",
-      logo: "https://ik.imagekit.io/iysaimg/ASSET%20IYSA/Desain_tanpa_judul_3_lbanwu.png?updatedAt=1781963589125",
+      logo: "/img/Desain_tanpa_judul_3_lbanwu.png",
     },
   ];
 
