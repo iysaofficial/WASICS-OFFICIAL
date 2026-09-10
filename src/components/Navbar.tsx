@@ -58,11 +58,15 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Link to="/homeregist">
+            {/* UNCOMMENT THIS WHEN REGISTRATION IS OPEN (WASICS 2027) */}
+            {/* <Link to="/homeregist">
               <Button variant="nav" size="lg">
                 Register Now
               </Button>
-            </Link>
+            </Link> */}
+            <Button variant="nav" size="lg" disabled className="opacity-70 cursor-not-allowed">
+              Coming Soon 2027
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -97,11 +101,15 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-              <Link to="/homeregist">
+              {/* UNCOMMENT THIS WHEN REGISTRATION IS OPEN (WASICS 2027) */}
+              {/* <Link to="/homeregist">
                 <Button variant="nav" size="lg" className="mt-2 w-full">
                   Register Now
                 </Button>
-              </Link>
+              </Link> */}
+              <Button variant="nav" size="lg" disabled className="mt-2 w-full opacity-70 cursor-not-allowed">
+                Coming Soon 2027
+              </Button>
             </div>
           </motion.div>
         )}

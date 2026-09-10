@@ -13,6 +13,8 @@ function HomeRegist() {
               </h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              {/* UNCOMMENT THIS WHEN REGISTRATION IS OPEN (WASICS 2027) */}
+              {/*
               <a
                 href="/homeindo"
                 className="group flex items-center justify-center p-6 bg-secondary text-secondary-foreground font-semibold rounded-lg text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-soft"
@@ -27,6 +29,25 @@ function HomeRegist() {
                 INTERNATIONAL CITIZEN
                 <i className="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
               </a>
+              */}
+
+              {/* REGISTRATION CLOSED - Coming Soon 2027 */}
+              <button
+                type="button"
+                disabled
+                className="flex items-center justify-center p-6 bg-secondary/60 text-secondary-foreground font-semibold rounded-lg text-lg opacity-70 cursor-not-allowed shadow-soft"
+              >
+                Coming Soon 2027 (Indonesian Citizen)
+                <i className="fas fa-lock ml-2"></i>
+              </button>
+              <button
+                type="button"
+                disabled
+                className="flex items-center justify-center p-6 bg-primary/60 text-primary-foreground font-semibold rounded-lg text-lg opacity-70 cursor-not-allowed shadow-soft"
+              >
+                Coming Soon 2027 (International Citizen)
+                <i className="fas fa-lock ml-2"></i>
+              </button>
               <a
                 href="/"
                 className="group flex items-center justify-center p-3 bg-destructive text-destructive-foreground font-semibold rounded-lg text-sm hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-soft md:col-span-2 mt-2 max-w-sm mx-auto w-full"

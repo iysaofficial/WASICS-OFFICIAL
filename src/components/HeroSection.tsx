@@ -120,12 +120,16 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Link to="/homeregist">
+            {/* UNCOMMENT THIS WHEN REGISTRATION IS OPEN (WASICS 2027) */}
+            {/* <Link to="/homeregist">
               <Button variant="hero" size="xl">
                 Register Now
                 <ArrowRight className="w-5 h-5" />
               </Button>
-            </Link>
+            </Link> */}
+            <Button variant="hero" size="xl" disabled className="opacity-70 cursor-not-allowed">
+              Coming Soon 2027
+            </Button>
             <Button variant="heroOutline" size="xl" onClick={() => setIsModalOpen(true)}>
               <FileText className="w-5 h-5" />
               Guidebook

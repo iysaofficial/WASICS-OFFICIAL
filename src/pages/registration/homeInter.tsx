@@ -52,6 +52,8 @@ function HomeInter() {
               </h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              {/* UNCOMMENT THIS WHEN REGISTRATION IS OPEN (WASICS 2027) */}
+              {/*
               <a
                 href="#!"
                 role="button"
@@ -76,6 +78,25 @@ function HomeInter() {
                 Offline Competition
                 <i className="fas fa-building ml-2"></i>
               </a>
+              */}
+
+              {/* REGISTRATION CLOSED - Coming Soon 2027 */}
+              <button
+                type="button"
+                disabled
+                className="flex items-center justify-center p-6 bg-secondary/60 text-secondary-foreground font-bold rounded-2xl text-lg opacity-70 cursor-not-allowed border border-border/50"
+              >
+                Coming Soon 2027 (Online)
+                <i className="fas fa-lock ml-2"></i>
+              </button>
+              <button
+                type="button"
+                disabled
+                className="flex items-center justify-center p-6 bg-primary/60 text-primary-foreground font-bold rounded-2xl text-lg opacity-70 cursor-not-allowed border border-primary/20"
+              >
+                Coming Soon 2027 (Offline)
+                <i className="fas fa-lock ml-2"></i>
+              </button>
               <a
                 href="/homeregist"
                 className="group flex items-center justify-center p-4 bg-gradient-to-r from-destructive to-[#e11d48] text-destructive-foreground font-bold rounded-xl text-sm transition-all duration-500 ease-out hover:-translate-y-1 active:scale-95 shadow-lg shadow-destructive/30 hover:shadow-destructive/50 hover:shadow-xl md:col-span-2 mt-4 max-w-sm mx-auto w-full"
