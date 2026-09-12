@@ -1,6 +1,19 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Book, Map, Globe2, Lightbulb, Compass, Leaf, Atom, X, ExternalLink, FileText, Scale } from "lucide-react";
+import {
+  ArrowRight,
+  Book,
+  Map,
+  Globe2,
+  Lightbulb,
+  Compass,
+  Leaf,
+  Atom,
+  X,
+  ExternalLink,
+  FileText,
+  Scale,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -15,24 +28,29 @@ const HeroSection = () => {
     } else {
       document.body.style.overflow = "unset";
     }
-    return () => { document.body.style.overflow = "unset"; };
+    return () => {
+      document.body.style.overflow = "unset";
+    };
   }, [isModalOpen]);
 
   const docs = {
     // Link Drive utama yang berisi Folder "Guidebook & T&C" untuk diakses langsung
-    externalDriveFolderLink: "https://drive.google.com/drive/folders/1Rpn57QJy2b0rAEQeMxbKQPQal4oZs_B-?usp=sharing", // TODO: Tempelkan link folder Google Drive Anda di sini
+    externalDriveFolderLink:
+      "https://drive.google.com/drive/folders/1Rpn57QJy2b0rAEQeMxbKQPQal4oZs_B-?usp=sharing", // TODO: Tempelkan link folder Google Drive Anda di sini
     tabs: {
       guidebook: {
         name: "Guidebook",
         icon: <Book className="w-4 h-4 mr-2" />,
-        embedLink: "https://drive.google.com/file/d/1gCQj5jk27KD4WS_mqdloJwgI2mSyrdXM/preview",
+        embedLink:
+          "https://drive.google.com/file/d/1gCQj5jk27KD4WS_mqdloJwgI2mSyrdXM/preview",
       },
       tnc: {
         name: "Terms & Conditions",
         icon: <Scale className="w-4 h-4 mr-2" />,
-        embedLink: "https://drive.google.com/file/d/1KOtyI8EZO42INO4Q_IeiTmBQCc_8JtTl/preview",
-      }
-    }
+        embedLink:
+          "https://drive.google.com/file/d/1KOtyI8EZO42INO4Q_IeiTmBQCc_8JtTl/preview",
+      },
+    },
   };
 
   return (
@@ -50,11 +68,46 @@ const HeroSection = () => {
 
       {/* Floating Animated Background Icons (Watermark Style) */}
       {[
-        { Icon: Globe2, className: "w-32 h-32 md:w-64 md:h-64 top-[5%] left-[-10%] md:top-10 md:left-5 text-primary/[0.08] md:text-primary/[0.16]", y: -30, x: 20, rotate: 10 },
-        { Icon: Lightbulb, className: "w-24 h-24 md:w-56 md:h-56 bottom-[10%] left-[5%] md:bottom-20 md:left-24 text-secondary/[0.05] md:text-secondary/[0.12]", y: 40, x: -20, rotate: -15 },
-        { Icon: Compass, className: "w-40 h-40 md:w-72 md:h-72 top-[15%] right-[-15%] md:top-20 md:right-10 text-primary/[0.12] md:text-primary/[0.12]", y: -50, x: -30, rotate: 20 },
-        { Icon: Leaf, className: "w-28 h-28 md:w-48 md:h-48 bottom-[5%] right-[-5%] md:bottom-32 md:right-24 text-primary/[0.08] md:text-primary/[0.16]", y: 30, x: 40, rotate: -10 },
-        { Icon: Atom, className: "hidden md:block w-[30rem] h-[30rem] top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-primary/[0.08]", y: -20, x: 20, rotate: 45 },
+        {
+          Icon: Globe2,
+          className:
+            "w-32 h-32 md:w-64 md:h-64 top-[5%] left-[-10%] md:top-10 md:left-5 text-primary/[0.08] md:text-primary/[0.16]",
+          y: -30,
+          x: 20,
+          rotate: 10,
+        },
+        {
+          Icon: Lightbulb,
+          className:
+            "w-24 h-24 md:w-56 md:h-56 bottom-[10%] left-[5%] md:bottom-20 md:left-24 text-secondary/[0.05] md:text-secondary/[0.12]",
+          y: 40,
+          x: -20,
+          rotate: -15,
+        },
+        {
+          Icon: Compass,
+          className:
+            "w-40 h-40 md:w-72 md:h-72 top-[15%] right-[-15%] md:top-20 md:right-10 text-primary/[0.12] md:text-primary/[0.12]",
+          y: -50,
+          x: -30,
+          rotate: 20,
+        },
+        {
+          Icon: Leaf,
+          className:
+            "w-28 h-28 md:w-48 md:h-48 bottom-[5%] right-[-5%] md:bottom-32 md:right-24 text-primary/[0.08] md:text-primary/[0.16]",
+          y: 30,
+          x: 40,
+          rotate: -10,
+        },
+        {
+          Icon: Atom,
+          className:
+            "hidden md:block w-[30rem] h-[30rem] top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2 text-primary/[0.08]",
+          y: -20,
+          x: 20,
+          rotate: 45,
+        },
       ].map((item, i) => (
         <motion.div
           key={i}
@@ -98,7 +151,10 @@ const HeroSection = () => {
           >
             <span className="text-foreground">World Agriculture, </span>
             <span className="text-gradient">Strategic Studies</span>
-            <span className="text-foreground"> & Innovation Science Competition</span>
+            <span className="text-foreground">
+              {" "}
+              & Innovation Science Competition
+            </span>
             <span className="text-gradient block mt-3"> (WASISC) 2026</span>
           </motion.h1>
 
@@ -109,8 +165,9 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            Empowering young researchers to address global challenges in food security,
-            public innovation, and resilience through science and collaboration.
+            Empowering young researchers to address global challenges in food
+            security, public innovation, and resilience through science and
+            collaboration.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -127,10 +184,19 @@ const HeroSection = () => {
                 <ArrowRight className="w-5 h-5" />
               </Button>
             </Link> */}
-            <Button variant="hero" size="xl" disabled className="opacity-70 cursor-not-allowed">
-              Coming Soon 2027
+            <Button
+              variant="hero"
+              size="xl"
+              disabled
+              className="opacity-70 cursor-not-allowed"
+            >
+              Close Registration
             </Button>
-            <Button variant="heroOutline" size="xl" onClick={() => setIsModalOpen(true)}>
+            <Button
+              variant="heroOutline"
+              size="xl"
+              onClick={() => setIsModalOpen(true)}
+            >
               <FileText className="w-5 h-5" />
               Guidebook
             </Button>
@@ -183,17 +249,17 @@ const HeroSection = () => {
             >
               {/* Modal Header */}
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 border-b border-border bg-muted/30">
-
                 {/* Tabs / Segmented Control */}
                 <div className="flex p-1 bg-secondary/20 rounded-xl w-full sm:w-auto overflow-x-auto">
                   {(["guidebook", "tnc"] as const).map((tab) => (
                     <button
                       key={tab}
                       onClick={() => setActiveTab(tab)}
-                      className={`flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-lg transition-all whitespace-nowrap ${activeTab === tab
-                        ? "bg-background text-foreground shadow-sm"
-                        : "text-muted-foreground hover:text-foreground hover:bg-black/5"
-                        }`}
+                      className={`flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-lg transition-all whitespace-nowrap ${
+                        activeTab === tab
+                          ? "bg-background text-foreground shadow-sm"
+                          : "text-muted-foreground hover:text-foreground hover:bg-black/5"
+                      }`}
                     >
                       {docs.tabs[tab].icon}
                       {docs.tabs[tab].name}

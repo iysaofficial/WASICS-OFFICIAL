@@ -24,7 +24,7 @@ function HomeInter() {
   const handleViewTerms = () => {
     window.open(
       "https://drive.google.com/file/d/1KOtyI8EZO42INO4Q_IeiTmBQCc_8JtTl/view?usp=sharing",
-      "_blank"
+      "_blank",
     );
   };
 
@@ -80,13 +80,13 @@ function HomeInter() {
               </a>
               */}
 
-              {/* REGISTRATION CLOSED - Coming Soon 2027 */}
+              {/* REGISTRATION CLOSED - Close Registration */}
               <button
                 type="button"
                 disabled
                 className="flex items-center justify-center p-6 bg-secondary/60 text-secondary-foreground font-bold rounded-2xl text-lg opacity-70 cursor-not-allowed border border-border/50"
               >
-                Coming Soon 2027 (Online)
+                Close Registration (Online)
                 <i className="fas fa-lock ml-2"></i>
               </button>
               <button
@@ -94,7 +94,7 @@ function HomeInter() {
                 disabled
                 className="flex items-center justify-center p-6 bg-primary/60 text-primary-foreground font-bold rounded-2xl text-lg opacity-70 cursor-not-allowed border border-primary/20"
               >
-                Coming Soon 2027 (Offline)
+                Close Registration (Offline)
                 <i className="fas fa-lock ml-2"></i>
               </button>
               <a
@@ -138,7 +138,8 @@ function HomeInter() {
               ))}
 
               <p className="text-muted-foreground mt-4">
-                Please review the terms and conditions carefully before proceeding.
+                Please review the terms and conditions carefully before
+                proceeding.
               </p>
             </div>
             <div className="p-6 bg-muted/50 rounded-b-2xl">

@@ -31,13 +31,13 @@ function HomeRegist() {
               </a>
               */}
 
-              {/* REGISTRATION CLOSED - Coming Soon 2027 */}
+              {/* REGISTRATION CLOSED - Close Registration */}
               <button
                 type="button"
                 disabled
                 className="flex items-center justify-center p-6 bg-secondary/60 text-secondary-foreground font-semibold rounded-lg text-lg opacity-70 cursor-not-allowed shadow-soft"
               >
-                Coming Soon 2027 (Indonesian Citizen)
+                Close Registration (Indonesian Citizen)
                 <i className="fas fa-lock ml-2"></i>
               </button>
               <button
@@ -45,7 +45,7 @@ function HomeRegist() {
                 disabled
                 className="flex items-center justify-center p-6 bg-primary/60 text-primary-foreground font-semibold rounded-lg text-lg opacity-70 cursor-not-allowed shadow-soft"
               >
-                Coming Soon 2027 (International Citizen)
+                Close Registration (International Citizen)
                 <i className="fas fa-lock ml-2"></i>
               </button>
               <a

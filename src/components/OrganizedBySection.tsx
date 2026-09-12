@@ -20,7 +20,11 @@ const OrganizedBySection = () => {
   ];
 
   return (
-    <section id="organized-by" className="section-padding bg-[radial-gradient(ellipse_at_center,hsl(var(--secondary)/0.1),transparent_70%)] relative overflow-hidden" ref={ref}>
+    <section
+      id="organized-by"
+      className="section-padding bg-[radial-gradient(ellipse_at_center,hsl(var(--secondary)/0.1),transparent_70%)] relative overflow-hidden"
+      ref={ref}
+    >
       <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -40,7 +44,12 @@ const OrganizedBySection = () => {
                 key={organizer.name}
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.7, delay: 0.2 + index * 0.2, type: "spring", stiffness: 80 }}
+                transition={{
+                  duration: 0.7,
+                  delay: 0.2 + index * 0.2,
+                  type: "spring",
+                  stiffness: 80,
+                }}
                 className="group relative"
               >
                 {/* Outer Glowing Aura Backdrop */}
@@ -48,7 +57,6 @@ const OrganizedBySection = () => {
 
                 {/* Premium Glass Card */}
                 <div className="relative h-full bg-card/60 backdrop-blur-xl border border-border/60 rounded-[2rem] p-10 flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl overflow-hidden">
-
                   {/* Subtle Inner Ambient Glow */}
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-primary/10 rounded-full blur-[4rem] group-hover:bg-primary/20 transition-colors duration-700 -z-10" />
 
@@ -64,7 +72,8 @@ const OrganizedBySection = () => {
                       alt={`${organizer.name} Logo`}
                       className="w-full h-full object-contain filter drop-shadow-xl transition-all duration-500"
                       style={{
-                        WebkitBoxReflect: "below 5px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.1))"
+                        WebkitBoxReflect:
+                          "below 5px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.1))",
                       }}
                     />
                   </div>
