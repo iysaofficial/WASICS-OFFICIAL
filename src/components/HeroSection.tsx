@@ -190,7 +190,7 @@ const HeroSection = () => {
               disabled
               className="opacity-70 cursor-not-allowed"
             >
-              Close Registration
+              Coming Soon 2027
             </Button>
             <Button
               variant="heroOutline"

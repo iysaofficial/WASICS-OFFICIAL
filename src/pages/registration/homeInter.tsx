@@ -80,13 +80,13 @@ function HomeInter() {
               </a>
               */}
 
-              {/* REGISTRATION CLOSED - Close Registration */}
+              {/* REGISTRATION CLOSED - Coming Soon 2027 */}
               <button
                 type="button"
                 disabled
                 className="flex items-center justify-center p-6 bg-secondary/60 text-secondary-foreground font-bold rounded-2xl text-lg opacity-70 cursor-not-allowed border border-border/50"
               >
-                Close Registration (Online)
+                Coming Soon 2027 (Online)
                 <i className="fas fa-lock ml-2"></i>
               </button>
               <button
@@ -94,7 +94,7 @@ function HomeInter() {
                 disabled
                 className="flex items-center justify-center p-6 bg-primary/60 text-primary-foreground font-bold rounded-2xl text-lg opacity-70 cursor-not-allowed border border-primary/20"
               >
-                Close Registration (Offline)
+                Coming Soon 2027 (Offline)
                 <i className="fas fa-lock ml-2"></i>
               </button>
               <a
