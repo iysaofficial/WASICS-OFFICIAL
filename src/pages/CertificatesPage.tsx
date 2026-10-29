@@ -25,7 +25,8 @@ const CertificatesPage = () => {
     // Modify these links when the actual Google Drive folders are ready
     if (year === "2026" && category === "Offline")
       return "https://drive.google.com/drive/folders/1EG3pzomKIj_xjOWYru8icsYWzCfD8DzF?usp=sharing";
-    if (year === "2026" && category === "Online") return "";
+    if (year === "2026" && category === "Online")
+      return "https://drive.google.com/drive/folders/1_IjJuvb5k1guGMHVCQ3MiioIZ8GiPGiT?usp=sharing";
     return "";
   };
 
