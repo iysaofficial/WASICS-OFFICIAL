@@ -13,8 +13,10 @@ const Footer = () => {
       { name: "List of Winners", href: "/winners" },
       { name: "Curation", href: "/curation" },
       { name: "Certificates", href: "/certificates" },
+      { name: "News", href: "/news" },
     ],
     resources: [
+      { name: "Press Release 2026", href: "https://drive.google.com/file/d/187S-iey2KpMkP06vlo8jaY68RtSKazbz/view?usp=sharing" },
       { name: "Guidebook", href: "https://drive.google.com/file/d/1vhDFjuAQLlDe2OQJNYuGcgWBAeNUBzjL/view?usp=sharing" },
       { name: "FAQs", href: "#faq" },
       { name: "Terms & Conditions", href: "https://drive.google.com/file/d/1KOtyI8EZO42INO4Q_IeiTmBQCc_8JtTl/view?usp=sharing" },

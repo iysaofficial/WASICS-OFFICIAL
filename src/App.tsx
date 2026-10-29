@@ -16,6 +16,7 @@ import AboutPage from "./pages/AboutPage";
 import WinnersPage from "./pages/WinnersPage";
 import CertificatesPage from "./pages/CertificatesPage";
 import CurationPage from "./pages/CurationPage";
+import NewsPage from "./pages/NewsPage";
 import ThankYouPage from "./pages/thankyou";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/winners" element={<WinnersPage />} />
           <Route path="/certificates" element={<CertificatesPage />} />
           <Route path="/curation" element={<CurationPage />} />
+          <Route path="/news" element={<NewsPage />} />
           <Route path="/homeregist" element={<HomeRegist />} />
           <Route path="/homeindo" element={<HomeIndo />} />
           <Route path="/indo-online" element={<IndonesiaOnline />} />
