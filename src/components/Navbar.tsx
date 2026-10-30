@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -22,12 +22,22 @@ const mediaLinks = [
   },
 ];
 
+const galleryLinks = [
+  {
+    name: "2026",
+    href: "https://drive.google.com/drive/folders/1z5u8_gUsWanJBM8suBXA7fHegvhTtSuH?usp=sharing",
+  },
+];
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMediaOpen, setIsMediaOpen] = useState(false);
   const [isMobileMediaOpen, setIsMobileMediaOpen] = useState(false);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [isMobileGalleryOpen, setIsMobileGalleryOpen] = useState(false);
   const mediaDropdownRef = useRef<HTMLDivElement>(null);
+  const galleryDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,11 +55,18 @@ const Navbar = () => {
       ) {
         setIsMediaOpen(false);
       }
+      if (
+        galleryDropdownRef.current &&
+        !galleryDropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsGalleryOpen(false);
+      }
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsMediaOpen(false);
+        setIsGalleryOpen(false);
       }
     };
 
@@ -127,15 +144,84 @@ const Navbar = () => {
                     className="absolute top-full left-0 pt-2 z-50 min-w-[180px]"
                   >
                     <div className="glass rounded-xl p-1.5 shadow-soft border border-border/80 bg-background/95 backdrop-blur-md flex flex-col gap-1">
-                      {mediaLinks.map((item) => (
-                        <Link
+                      {mediaLinks.map((item) =>
+                        item.href.startsWith("http") ? (
+                          <a
+                            key={item.name}
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setIsMediaOpen(false)}
+                            className="px-3.5 py-2 rounded-lg text-sm font-medium text-foreground/80 hover:text-primary hover:bg-muted/80 transition-all duration-150 flex items-center justify-between"
+                          >
+                            <span>{item.name}</span>
+                            <ExternalLink className="w-3.5 h-3.5 opacity-70 ml-2" />
+                          </a>
+                        ) : (
+                          <Link
+                            key={item.name}
+                            to={item.href}
+                            onClick={() => setIsMediaOpen(false)}
+                            className="px-3.5 py-2 rounded-lg text-sm font-medium text-foreground/80 hover:text-primary hover:bg-muted/80 transition-all duration-150 flex items-center"
+                          >
+                            {item.name}
+                          </Link>
+                        )
+                      )}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Gallery Dropdown */}
+            <div
+              ref={galleryDropdownRef}
+              className="relative"
+              onMouseEnter={() => setIsGalleryOpen(true)}
+              onMouseLeave={() => setIsGalleryOpen(false)}
+            >
+              <button
+                type="button"
+                onClick={() => setIsGalleryOpen((prev) => !prev)}
+                className={`flex items-center gap-1 font-medium transition-colors duration-200 cursor-pointer ${
+                  isGalleryOpen
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary"
+                }`}
+                aria-haspopup="true"
+                aria-expanded={isGalleryOpen}
+              >
+                <span>Gallery</span>
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform duration-200 ${
+                    isGalleryOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              <AnimatePresence>
+                {isGalleryOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
+                    className="absolute top-full left-0 pt-2 z-50 min-w-[150px]"
+                  >
+                    <div className="glass rounded-xl p-1.5 shadow-soft border border-border/80 bg-background/95 backdrop-blur-md flex flex-col gap-1">
+                      {galleryLinks.map((item) => (
+                        <a
                           key={item.name}
-                          to={item.href}
-                          onClick={() => setIsMediaOpen(false)}
-                          className="px-3.5 py-2 rounded-lg text-sm font-medium text-foreground/80 hover:text-primary hover:bg-muted/80 transition-all duration-150 flex items-center"
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setIsGalleryOpen(false)}
+                          className="px-3.5 py-2 rounded-lg text-sm font-medium text-foreground/80 hover:text-primary hover:bg-muted/80 transition-all duration-150 flex items-center justify-between"
                         >
-                          {item.name}
-                        </Link>
+                          <span>{item.name}</span>
+                          <ExternalLink className="w-3.5 h-3.5 opacity-70 ml-2" />
+                        </a>
                       ))}
                     </div>
                   </motion.div>
@@ -167,7 +253,10 @@ const Navbar = () => {
             className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
             onClick={() => {
               setIsMobileMenuOpen(!isMobileMenuOpen);
-              if (isMobileMenuOpen) setIsMobileMediaOpen(false);
+              if (isMobileMenuOpen) {
+                setIsMobileMediaOpen(false);
+                setIsMobileGalleryOpen(false);
+              }
             }}
           >
             {isMobileMenuOpen ? (
@@ -221,18 +310,79 @@ const Navbar = () => {
                       transition={{ duration: 0.2 }}
                       className="overflow-hidden pl-4 flex flex-col gap-1 mt-1"
                     >
-                      {mediaLinks.map((item) => (
-                        <Link
+                      {mediaLinks.map((item) =>
+                        item.href.startsWith("http") ? (
+                          <a
+                            key={item.name}
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-primary hover:bg-muted font-medium transition-all flex items-center justify-between"
+                            onClick={() => {
+                              setIsMobileMenuOpen(false);
+                              setIsMobileMediaOpen(false);
+                            }}
+                          >
+                            <span>{item.name}</span>
+                            <ExternalLink className="w-3.5 h-3.5 opacity-70 ml-2" />
+                          </a>
+                        ) : (
+                          <Link
+                            key={item.name}
+                            to={item.href}
+                            className="px-4 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-primary hover:bg-muted font-medium transition-all"
+                            onClick={() => {
+                              setIsMobileMenuOpen(false);
+                              setIsMobileMediaOpen(false);
+                            }}
+                          >
+                            {item.name}
+                          </Link>
+                        )
+                      )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Gallery Mobile Accordion */}
+              <div>
+                <button
+                  type="button"
+                  onClick={() => setIsMobileGalleryOpen((prev) => !prev)}
+                  className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-muted-foreground hover:text-primary hover:bg-muted font-medium transition-all"
+                >
+                  <span>Gallery</span>
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform duration-200 ${
+                      isMobileGalleryOpen ? "rotate-180 text-primary" : ""
+                    }`}
+                  />
+                </button>
+                <AnimatePresence>
+                  {isMobileGalleryOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden pl-4 flex flex-col gap-1 mt-1"
+                    >
+                      {galleryLinks.map((item) => (
+                        <a
                           key={item.name}
-                          to={item.href}
-                          className="px-4 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-primary hover:bg-muted font-medium transition-all"
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-4 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-primary hover:bg-muted font-medium transition-all flex items-center justify-between"
                           onClick={() => {
                             setIsMobileMenuOpen(false);
-                            setIsMobileMediaOpen(false);
+                            setIsMobileGalleryOpen(false);
                           }}
                         >
-                          {item.name}
-                        </Link>
+                          <span>{item.name}</span>
+                          <ExternalLink className="w-3.5 h-3.5 opacity-70 ml-2" />
+                        </a>
                       ))}
                     </motion.div>
                   )}
