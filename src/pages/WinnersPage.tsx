@@ -2,7 +2,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { ChevronDown, Trophy, Medal, Star } from "lucide-react";
+import {
+  ChevronDown,
+  Trophy,
+  Medal,
+  Star,
+  ExternalLink,
+  FileText,
+} from "lucide-react";
 
 const WinnersPage = () => {
   // Default to the latest year and the primary category
@@ -14,22 +21,33 @@ const WinnersPage = () => {
 
   const availableYears = [
     { label: "2026", value: "2026", disabled: false },
-    { label: "2027 (Soon)", value: "2027", disabled: true }
+    { label: "2027 (Soon)", value: "2027", disabled: true },
   ];
 
   const levels = [
     {
       name: "Elementary",
-      // Contoh link G-Drive (pastikan berakhiran /preview, BUKAN /view)
-      pdfLink: ""
+      pdfLink: {
+        Offline: "",
+        Online:
+          "https://drive.google.com/file/d/1RxuDFJTRUw9DO2QAi5GP-DvE4nNsok6z/view?usp=sharing",
+      },
     },
     {
       name: "Secondary",
-      pdfLink: "" // Biarkan kosong jika belum ada 
+      pdfLink: {
+        Offline: "",
+        Online:
+          "https://drive.google.com/file/d/1HREIYhF8C6VuEAkZt3YfV-wsUNOnfh7U/view?usp=sharing",
+      },
     },
     {
       name: "University",
-      pdfLink: ""
+      pdfLink: {
+        Offline: "",
+        Online:
+          "https://drive.google.com/file/d/1cMUpTQS_i_0Gimr5_k2AVpfRJY7gul-3/view?usp=sharing",
+      },
     },
   ];
 
@@ -57,7 +75,8 @@ const WinnersPage = () => {
             List of <span className="text-gradient">Winners</span>
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Celebrating the brightest young minds and their remarkable achievements in the WASICS global science competition.
+            Celebrating the brightest young minds and their remarkable
+            achievements in the WASICS global science competition.
           </p>
         </motion.div>
 
@@ -79,12 +98,13 @@ const WinnersPage = () => {
                     setExpandedLevel(null); // Reset accordion on year change
                   }
                 }}
-                className={`relative px-8 py-2.5 rounded-full text-base font-bold transition-all duration-300 ${selectedYear === obj.value
-                  ? "text-primary-foreground shadow-lg"
-                  : obj.disabled
-                    ? "text-muted-foreground/30 cursor-not-allowed bg-muted/20"
-                    : "text-muted-foreground hover:text-foreground hover:bg-background/50"
-                  }`}
+                className={`relative px-8 py-2.5 rounded-full text-base font-bold transition-all duration-300 ${
+                  selectedYear === obj.value
+                    ? "text-primary-foreground shadow-lg"
+                    : obj.disabled
+                      ? "text-muted-foreground/30 cursor-not-allowed bg-muted/20"
+                      : "text-muted-foreground hover:text-foreground hover:bg-background/50"
+                }`}
               >
                 {selectedYear === obj.value && (
                   <motion.div
@@ -108,8 +128,11 @@ const WinnersPage = () => {
             className="flex p-2 bg-card border border-border shadow-soft rounded-[2.5rem] w-full max-w-[28rem] relative"
           >
             <div
-              className={`absolute top-2 bottom-2 left-2 w-[calc(50%-0.6rem)] bg-primary/10 rounded-[2rem] border border-primary/20 transition-transform duration-500 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)] ${selectedCategory === "Online" ? "translate-x-full" : "translate-x-0"
-                }`}
+              className={`absolute top-2 bottom-2 left-2 w-[calc(50%-0.6rem)] bg-primary/10 rounded-[2rem] border border-primary/20 transition-transform duration-500 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)] ${
+                selectedCategory === "Online"
+                  ? "translate-x-full"
+                  : "translate-x-0"
+              }`}
             />
             {["Offline", "Online"].map((cat) => (
               <button
@@ -118,8 +141,11 @@ const WinnersPage = () => {
                   setSelectedCategory(cat);
                   setExpandedLevel(null); // Reset accordion on category change
                 }}
-                className={`flex-1 py-4 text-center font-bold text-lg md:text-xl transition-colors z-10 ${selectedCategory === cat ? "text-primary drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]" : "text-muted-foreground hover:text-foreground"
-                  }`}
+                className={`flex-1 py-4 text-center font-bold text-lg md:text-xl transition-colors z-10 ${
+                  selectedCategory === cat
+                    ? "text-primary drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
               >
                 {cat} Mode
               </button>
@@ -132,6 +158,10 @@ const WinnersPage = () => {
           <AnimatePresence mode="popLayout">
             {levels.map((level, index) => {
               const isExpanded = expandedLevel === level.name;
+              const currentPdfLink =
+                selectedCategory === "Offline"
+                  ? level.pdfLink.Offline
+                  : level.pdfLink.Online;
 
               return (
                 <motion.div
@@ -139,25 +169,33 @@ const WinnersPage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  className={`bg-card/60 backdrop-blur-xl border ${isExpanded ? 'border-primary/40 shadow-[0_4px_30px_rgba(16,185,129,0.15)]' : 'border-white/10 dark:border-white/5 shadow-soft'} rounded-[2rem] overflow-hidden hover:shadow-elevated transition-all duration-500`}
+                  className={`bg-card/60 backdrop-blur-xl border ${isExpanded ? "border-primary/40 shadow-[0_4px_30px_rgba(16,185,129,0.15)]" : "border-white/10 dark:border-white/5 shadow-soft"} rounded-[2rem] overflow-hidden hover:shadow-elevated transition-all duration-500`}
                 >
                   <button
                     onClick={() => handleLevelToggle(level.name)}
                     className="w-full text-left px-6 md:px-10 py-6 md:py-8 flex items-center justify-between focus:outline-none group"
                   >
                     <div className="flex items-center gap-5 md:gap-6">
-                      <div className={`w-14 h-14 md:w-16 md:h-16 rounded-[1.2rem] flex items-center justify-center transition-all duration-500 ${isExpanded ? 'bg-primary text-primary-foreground scale-110 shadow-lg shadow-primary/30' : 'bg-primary/10 text-primary group-hover:scale-110 group-hover:bg-primary/20'}`}>
+                      <div
+                        className={`w-14 h-14 md:w-16 md:h-16 rounded-[1.2rem] flex items-center justify-center transition-all duration-500 ${isExpanded ? "bg-primary text-primary-foreground scale-110 shadow-lg shadow-primary/30" : "bg-primary/10 text-primary group-hover:scale-110 group-hover:bg-primary/20"}`}
+                      >
                         <Star className="w-7 h-7 md:w-8 md:h-8" />
                       </div>
                       <div>
                         <h3 className="text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors">
                           {level.name}
                         </h3>
-                        <p className="text-muted-foreground text-sm font-medium mt-1">Click to view medalists</p>
+                        <p className="text-muted-foreground text-sm font-medium mt-1">
+                          Click to view Decree
+                        </p>
                       </div>
                     </div>
-                    <div className={`p-3 rounded-full border bg-background transition-all duration-500 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)] ${isExpanded ? "rotate-180 bg-primary/10 border-primary/30" : "border-border"}`}>
-                      <ChevronDown className={`w-7 h-7 ${isExpanded ? "text-primary" : "text-muted-foreground"}`} />
+                    <div
+                      className={`p-3 rounded-full border bg-background transition-all duration-500 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)] ${isExpanded ? "rotate-180 bg-primary/10 border-primary/30" : "border-border"}`}
+                    >
+                      <ChevronDown
+                        className={`w-7 h-7 ${isExpanded ? "text-primary" : "text-muted-foreground"}`}
+                      />
                     </div>
                   </button>
 
@@ -167,23 +205,38 @@ const WinnersPage = () => {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
+                        transition={{
+                          duration: 0.5,
+                          ease: [0.34, 1.56, 0.64, 1],
+                        }}
                         className="overflow-hidden"
                       >
                         <div className="px-6 md:px-10 pb-10 pt-2">
                           <div className="h-px w-full bg-border/60 mb-8" />
 
-                          {/* Render Embedded PDF or Fallback */}
-                          {level.pdfLink ? (
-                            <div className="bg-background rounded-3xl overflow-hidden border border-border shadow-inner relative w-full h-[500px] md:h-[700px]">
-                              <iframe
-                                src={level.pdfLink}
-                                width="100%"
-                                height="100%"
-                                allow="autoplay"
-                                className="border-0 bg-white"
-                                title={`Winners ${level.name}`}
-                              ></iframe>
+                          {/* Render Drive Link Button or Fallback */}
+                          {currentPdfLink ? (
+                            <div className="bg-background/80 rounded-3xl p-8 md:p-12 border border-border flex flex-col items-center justify-center text-center">
+                              <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-4">
+                                <FileText className="w-8 h-8" />
+                              </div>
+                              <p className="text-foreground font-bold text-xl md:text-2xl mb-2">
+                                Official List of Winners ({level.name})
+                              </p>
+                              <p className="text-muted-foreground mb-6 max-w-md">
+                                View and download the complete medalist document
+                                for {selectedYear} {selectedCategory} Mode via
+                                Google Drive.
+                              </p>
+                              <a
+                                href={currentPdfLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-primary text-primary-foreground font-bold text-base shadow-lg shadow-primary/25 hover:bg-primary/90 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-300"
+                              >
+                                <span>Open in Google Drive</span>
+                                <ExternalLink className="w-5 h-5" />
+                              </a>
                             </div>
                           ) : (
                             <div className="bg-background/80 rounded-3xl p-10 md:p-16 border-2 border-dashed border-border/80 flex flex-col items-center justify-center text-center">
@@ -192,11 +245,15 @@ const WinnersPage = () => {
                                 Awaiting official announcements
                               </p>
                               <p className="text-base md:text-lg text-muted-foreground/80 max-w-lg">
-                                Medal results for <strong className="text-primary">{selectedYear} "{selectedCategory}" - {level.name}</strong> will be updated here soon.
+                                Medal results for{" "}
+                                <strong className="text-primary">
+                                  {selectedYear} "{selectedCategory}" -{" "}
+                                  {level.name}
+                                </strong>{" "}
+                                will be updated here soon.
                               </p>
                             </div>
                           )}
-
                         </div>
                       </motion.div>
                     )}
